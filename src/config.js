@@ -26,15 +26,15 @@ module.exports = {
 
   navLinks: [
     {
+      name: 'Home',
+      url: '/',
+    },
+    {
       name: 'About',
       url: '/#about',
     },
     {
-      name: 'Experience',
-      url: '/#jobs',
-    },
-    {
-      name: 'Work',
+      name: 'Projects',
       url: '/#projects',
     },
     {
@@ -44,6 +44,7 @@ module.exports = {
   ],
 
   colors: {
+    // TODO: Change these colors
     green: '#64ffda',
     navy: '#0a192f',
     darkNavy: '#020c1b',

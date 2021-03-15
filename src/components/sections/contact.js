@@ -15,8 +15,8 @@ const StyledContactSection = styled.section`
   .overline {
     display: block;
     margin-bottom: 20px;
-    color: var(--green);
-    font-family: var(--font-mono);
+
+    font-family: var(--font-poppins);
     font-size: var(--fz-md);
     font-weight: 400;
 
@@ -35,7 +35,7 @@ const StyledContactSection = styled.section`
   }
 
   .email-link {
-    ${({ theme }) => theme.mixins.bigButton};
+    ${({ theme }) => theme.mixins.secondaryButton};
     margin-top: 50px;
   }
 `;
@@ -46,7 +46,7 @@ const Contact = () => {
 
   return (
     <StyledContactSection id="contact" ref={revealContainer}>
-      <h2 className="numbered-heading overline">What’s Next?</h2>
+      <h2 className="overline">What’s Next?</h2>
 
       <h2 className="title">Get In Touch</h2>
 

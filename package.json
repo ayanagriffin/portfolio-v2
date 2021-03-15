@@ -33,6 +33,8 @@
     ]
   },
   "dependencies": {
+    "@fontsource/karla": "^4.2.2",
+    "@fontsource/poppins": "^4.2.2",
     "animejs": "^3.1.0",
     "babel-plugin-styled-components": "^1.10.6",
     "gatsby": "^2.18.7",

@@ -1,29 +1,5 @@
 import { css } from 'styled-components';
 
-const button = css`
-  color: var(--green);
-  background-color: transparent;
-  border: 1px solid var(--green);
-  border-radius: var(--border-radius);
-  font-size: var(--fz-xs);
-  font-family: var(--font-mono);
-  line-height: 1;
-  text-decoration: none;
-  cursor: pointer;
-  transition: var(--transition);
-  padding: 1.25rem 1.75rem;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: var(--green-tint);
-    outline: none;
-  }
-  &:after {
-    display: none !important;
-  }
-`;
-
 const mixins = {
   flexCenter: css`
     display: flex;
@@ -48,7 +24,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: var(--green);
+      color: var(--secondary-button);
       outline: 0;
     }
   `,
@@ -60,17 +36,17 @@ const mixins = {
     position: relative;
     transition: var(--transition);
     cursor: pointer;
-    color: var(--green);
+    color: var(--secondary-button);
     &:hover,
     &:focus,
     &:active {
-      color: var(--green);
+      color: var(--secondary-button);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--green) !important;
+        color: var(--secondary-button) !important;
         transition: var(--transition);
       }
     }
@@ -80,55 +56,89 @@ const mixins = {
       width: 0;
       height: 1px;
       position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
+      bottom: 3px;
+      background-color: var(--secondary-button);
       transition: var(--transition);
       opacity: 0.5;
     }
   `,
 
-  button,
-
-  smallButton: css`
-    color: var(--green);
-    background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: var(--border-radius);
-    padding: 0.75rem 1rem;
-    font-size: var(--fz-xs);
-    font-family: var(--font-mono);
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
+  sourceCode: css`
+    color: var(--main-text);
+    font-size: var(--fz-md);
+    text-transform: lowercase;
+    margin-bottom: 5px;
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
-      outline: none;
+      color: var(--main-text);
     }
     &:after {
-      display: none !important;
+      background-color: var(--main-text);
     }
   `,
 
-  bigButton: css`
-    color: var(--green);
-    background-color: transparent;
-    border: 1px solid var(--green);
-    border-radius: var(--border-radius);
-    padding: 1.25rem 1.75rem;
+  navLink: css`
+    color: var(--main-text);
     font-size: var(--fz-sm);
-    font-family: var(--font-mono);
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--main-text);
+    }
+    &:after {
+      background-color: var(--main-text);
+    }
+  `,
+
+  button: css`
+    background-color: var(--primary-button);
+    border-radius: var(--border-radius);
+    padding: 8px 40px;
+    font-weight: bold;
+    letter-spacing: 0.75px;
+    font-size: var(--fz-md);
+    text-transform: capitalize;
+    transition: var(--transition);
+    white-space: nowrap;
+    &:hover,
+    &:focus,
+    &:active {
+      transform: scale(0.95);
+    }
+  `,
+
+  smallButton: css`
+    font-size: var(--fz-xs);
+    padding: 0.75rem 1rem;
+  `,
+
+  medButton: css`
+    font-size: var(--fz-sm);
+    padding: 0.75rem 1rem;
+  `,
+
+  //TODO:change name to secondary button
+  secondaryButton: css`
+    color: var(--secondary-button);
+    background-color: transparent;
+    border: 2px solid var(--secondary-button);
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    font-size: var(--fz-md);
+    font-weight: bold;
+    text-transform: capitalize;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
     transition: var(--transition);
+    letter-spacing: 0.75px;
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--green-tint);
-      outline: none;
+      color: var(--background);
+      background-color: var(--secondary-button);
+      transform: scale(0.95);
     }
     &:after {
       display: none !important;
@@ -136,32 +146,32 @@ const mixins = {
   `,
 
   boxShadow: css`
-    box-shadow: 0 10px 30px -15px var(--navy-shadow);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     transition: var(--transition);
 
     &:hover,
     &:focus {
-      box-shadow: 0 20px 30px -15px var(--navy-shadow);
+      box-shadow: 0 20px 30px -15px rgba(149, 157, 165, 0.2);
     }
   `,
 
-  fancyList: css`
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-size: var(--fz-lg);
-    li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 10px;
-      &:before {
-        content: '▹';
-        position: absolute;
-        left: 0;
-        color: var(--green);
-      }
-    }
-  `,
+  // fancyList: css`
+  //   padding: 0;
+  //   margin: 0;
+  //   list-style: none;
+  //   font-size: var(--fz-lg);
+  //   li {
+  //     position: relative;
+  //     padding-left: 30px;
+  //     margin-bottom: 10px;
+  //     &:before {
+  //       content: '▹';
+  //       position: absolute;
+  //       left: 0;
+  //       color: var(--green);
+  //     }
+  //   }
+  // `,
 
   resetList: css`
     list-style: none;

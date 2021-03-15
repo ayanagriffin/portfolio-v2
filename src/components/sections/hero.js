@@ -12,8 +12,8 @@ const StyledHeroSection = styled.section`
 
   h1 {
     margin: 0 0 30px 4px;
-    color: var(--green);
-    font-family: var(--font-mono);
+
+    font-family: var(--font-poppins);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
 
@@ -24,7 +24,7 @@ const StyledHeroSection = styled.section`
 
   h3 {
     margin-top: 10px;
-    color: var(--slate);
+
     line-height: 0.9;
   }
 
@@ -34,7 +34,7 @@ const StyledHeroSection = styled.section`
   }
 
   .email-link {
-    ${({ theme }) => theme.mixins.bigButton};
+    ${({ theme }) => theme.mixins.secondaryButton};
     margin-top: 50px;
   }
 `;

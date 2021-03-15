@@ -4,7 +4,6 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
-import { Icon } from '@components/icons';
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -16,7 +15,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .archive-link {
-    font-family: var(--font-mono);
+    font-family: var(--font-poppins);
     font-size: var(--fz-sm);
     &:after {
       bottom: 0.1em;
@@ -31,9 +30,9 @@ const StyledProjectsSection = styled.section`
     position: relative;
     margin-top: 50px;
 
-    @media (max-width: 1080px) {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    }
+    // @media (max-width: 400px) {
+    //   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    // }
 
     a {
       position: relative;
@@ -42,7 +41,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .more-button {
-    ${({ theme }) => theme.mixins.button};
+    ${({ theme }) => theme.mixins.secondaryButton};
     margin: 80px auto 0;
   }
 `;
@@ -68,7 +67,7 @@ const StyledProject = styled.li`
     height: 100%;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    
     transition: var(--transition);
   }
 
@@ -76,43 +75,11 @@ const StyledProject = styled.li`
     ${({ theme }) => theme.mixins.flexBetween};
     margin-bottom: 35px;
 
-    .folder {
-      color: var(--green);
-      svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    .project-links {
-      display: flex;
-      align-items: center;
-      margin-right: -10px;
-      color: var(--light-slate);
-
-      a {
-        ${({ theme }) => theme.mixins.flexCenter};
-        padding: 5px 7px;
-
-        &.external {
-          svg {
-            width: 22px;
-            height: 22px;
-            margin-top: -4px;
-          }
-        }
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
   }
 
   .project-title {
     margin: 0 0 10px;
-    color: var(--lightest-slate);
+
     font-size: var(--fz-xxl);
 
     a {
@@ -132,30 +99,27 @@ const StyledProject = styled.li`
   }
 
   .project-description {
-    color: var(--light-slate);
-    font-size: 17px;
+    color: var(--p-text);
+    font-size: var(--fz-md);
+    margin-bottom: 20px;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
     }
   }
 
-  .project-tech-list {
-    display: flex;
-    align-items: flex-end;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    padding: 0;
-    margin: 20px 0 0 0;
-    list-style: none;
+  
+  }
 
-    li {
-      font-family: var(--font-mono);
-      font-size: var(--fz-xxs);
-      line-height: 1.75;
+  footer{
+    .project-links{
+      .inline-link{
+        ${({ theme }) => theme.mixins.sourceCode};
+      }
 
-      &:not(:last-of-type) {
-        margin-right: 15px;
+      .button-primary{
+        ${({ theme }) => theme.mixins.button};
+        margin-bottom: 8px;
       }
     }
   }
@@ -232,21 +196,17 @@ const Projects = () => {
                     <div className="project-inner">
                       <header>
                         <div className="project-top">
-                          <div className="folder">
-                            <Icon name="Folder" />
-                          </div>
-                          <div className="project-links">
-                            {github && (
-                              <a href={github} aria-label="GitHub Link">
-                                <Icon name="GitHub" />
-                              </a>
-                            )}
-                            {external && (
-                              <a href={external} aria-label="External Link" className="external">
-                                <Icon name="External" />
-                              </a>
-                            )}
-                          </div>
+                          <p className="small-top-text">
+                            {tech.length > 0 &&
+                              tech.map((item, i) => (
+                                <span key={i}>
+                                  {item}{' '}
+                                  {i !== tech.length - 1 && (
+                                    <span className="separator">&nbsp;</span>
+                                  )}{' '}
+                                </span>
+                              ))}
+                          </p>
                         </div>
 
                         <h3 className="project-title">
@@ -260,13 +220,37 @@ const Projects = () => {
                       </header>
 
                       <footer>
-                        {tech && (
-                          <ul className="project-tech-list">
-                            {tech.map((tech, i) => (
-                              <li key={i}>{tech}</li>
-                            ))}
-                          </ul>
-                        )}
+                        <div className="project-links">
+                          {github && !external && (
+                            <a href={github} aria-label="GitHub Link" className="button-primary">
+                              view source code
+                            </a>
+                          )}
+
+                          {!github && external && (
+                            <a href={external} aria-label="GitHub Link" className="button-primary">
+                              view project
+                            </a>
+                          )}
+
+                          {github && external && (
+                            <div>
+                              <a
+                                href={github}
+                                aria-label="GitHub Link"
+                                className="inline-link source-code">
+                                view source code
+                              </a>
+                              <br />
+                              <a
+                                href={external}
+                                aria-label="GitHub Link"
+                                className="button-primary">
+                                view project
+                              </a>
+                            </div>
+                          )}
+                        </div>
                       </footer>
                     </div>
                   </StyledProject>

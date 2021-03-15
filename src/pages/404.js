@@ -12,8 +12,7 @@ const StyledMainContainer = styled.main`
   flex-direction: column;
 `;
 const StyledTitle = styled.h1`
-  color: var(--green);
-  font-family: var(--font-mono);
+  font-family: var(--font-poppins);
   font-size: clamp(100px, 25vw, 200px);
   line-height: 1;
 `;
@@ -22,7 +21,7 @@ const StyledSubtitle = styled.h2`
   font-weight: 400;
 `;
 const StyledHomeButton = styled(Link)`
-  ${({ theme }) => theme.mixins.bigButton};
+  ${({ theme }) => theme.mixins.secondaryButton};
   margin-top: 40px;
 `;
 

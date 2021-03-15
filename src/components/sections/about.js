@@ -31,7 +31,7 @@ const StyledText = styled.div`
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
-      font-family: var(--font-mono);
+      font-family: var(--font-poppins);
       font-size: var(--fz-xs);
 
       &:before {
@@ -100,7 +100,7 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
+      // background-color: var(--navy);
       mix-blend-mode: screen;
     }
 
