@@ -53,17 +53,17 @@ const Footer = () => (
     <StyledSocialLinks>
       <ul>
         {socialMedia &&
-            socialMedia.map(({ name, url }, i) => (
-              <li key={i}>
-                <a href={url} aria-label={name}>
-                  <Icon name={name} />
-                </a>
-              </li>
-            ))}
+          socialMedia.map(({ name, url }, i) => (
+            <li key={i}>
+              <a href={url} aria-label={name}>
+                <Icon name={name} />
+              </a>
+            </li>
+          ))}
       </ul>
     </StyledSocialLinks>
     <StyledCredit>
-      <a href="/">Made by Brittany</a>
+      <a href="https://brittanychiang.com/">Made by Brittany Chiang</a>
     </StyledCredit>
   </StyledFooter>
 );

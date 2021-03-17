@@ -51,6 +51,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    overflow-x: hidden;
   }
 
   *,
@@ -175,8 +176,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .medium-heading {
-    margin: 0;
-    font-size: clamp(40px, 8vw, 60px);
+    margin: 20px 0 10px 0;
+    // color: var(--p-text);
+    font-size: clamp(32px, 6vw, 50px);
+    font-family: var(--font-poppins);
   }
 
   img,

@@ -96,6 +96,10 @@ h3{
 
 .project-image {
   order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   a {
     width: 100%;
 }

@@ -51,6 +51,11 @@ const StyledProject = styled.li`
   cursor: default;
   transition: var(--transition);
 
+  .built-with{
+    margin: 5px 0 20px 0;
+    font-size: var(--fz-md);
+    font-weight: bold;
+  }
   &:hover,
   &:focus-within {
     .project-inner {
@@ -66,6 +71,7 @@ const StyledProject = styled.li`
     position: relative;
     height: 100%;
     padding: 2rem 1.75rem;
+    padding-bottom: 1.5rem;
     border-radius: var(--border-radius);
     
     transition: var(--transition);
@@ -105,6 +111,7 @@ const StyledProject = styled.li`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
+     
     }
   }
 
@@ -115,11 +122,12 @@ const StyledProject = styled.li`
     .project-links{
       .inline-link{
         ${({ theme }) => theme.mixins.sourceCode};
+        margin-bottom: 0;
       }
 
       .button-primary{
         ${({ theme }) => theme.mixins.button};
-        margin-bottom: 8px;
+        
       }
     }
   }
@@ -141,6 +149,7 @@ const Projects = () => {
               title
               tech
               github
+              company
               external
             }
             html
@@ -179,7 +188,7 @@ const Projects = () => {
           {projectsToShow &&
             projectsToShow.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { github, external, title, tech } = frontmatter;
+              const { github, external, title, company } = frontmatter;
 
               return (
                 <CSSTransition
@@ -196,17 +205,11 @@ const Projects = () => {
                     <div className="project-inner">
                       <header>
                         <div className="project-top">
-                          <p className="small-top-text">
-                            {tech.length > 0 &&
-                              tech.map((item, i) => (
-                                <span key={i}>
-                                  {item}{' '}
-                                  {i !== tech.length - 1 && (
-                                    <span className="separator">&nbsp;</span>
-                                  )}{' '}
-                                </span>
-                              ))}
-                          </p>
+                          {company ? (
+                            <p className="small-top-text">{company} project</p>
+                          ) : (
+                            <p className="small-top-text">project</p>
+                          )}
                         </div>
 
                         <h3 className="project-title">
@@ -217,18 +220,38 @@ const Projects = () => {
                           className="project-description"
                           dangerouslySetInnerHTML={{ __html: html }}
                         />
+                        {/* <div className="built-with">
+                          Built with
+                          {tech.length > 0 &&
+                            tech.map((item, i) => (
+                              <span key={i}>
+                                {' '}
+                                {i === tech.length - 1 && <span className="separator">and </span>}
+                                {item}
+                                {i !== tech.length - 1 && <span className="separator">,</span>}
+                              </span>
+                            ))}
+                        </div> */}
                       </header>
 
                       <footer>
                         <div className="project-links">
                           {github && !external && (
-                            <a href={github} aria-label="GitHub Link" className="button-primary">
+                            <a
+                              href={github}
+                              aria-label="GitHub Link"
+                              className="button-primary"
+                              style={{ marginBottom: '25px' }}>
                               view source code
                             </a>
                           )}
 
                           {!github && external && (
-                            <a href={external} aria-label="GitHub Link" className="button-primary">
+                            <a
+                              href={external}
+                              aria-label="GitHub Link"
+                              className="button-primary"
+                              style={{ marginBottom: '25px' }}>
                               view project
                             </a>
                           )}
@@ -236,17 +259,17 @@ const Projects = () => {
                           {github && external && (
                             <div>
                               <a
-                                href={github}
-                                aria-label="GitHub Link"
-                                className="inline-link source-code">
-                                view source code
-                              </a>
-                              <br />
-                              <a
                                 href={external}
                                 aria-label="GitHub Link"
                                 className="button-primary">
                                 view project
+                              </a>
+                              <br />
+                              <a
+                                href={github}
+                                aria-label="GitHub Link"
+                                className="inline-link source-code">
+                                view source code
                               </a>
                             </div>
                           )}
