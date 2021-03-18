@@ -119,8 +119,15 @@ const Hero = () => {
             justice.
           </p>
           <p className="about">
-            I've previously interned at <a href="/">Company 1</a> and <a href="/">Company 1</a>,
-            working with JavaScript, React, Node and Gatsby.
+            I've previously interned at{' '}
+            <a href="/" tabIndex={isHomePage ? -1 : undefined}>
+              Company 1
+            </a>{' '}
+            and{' '}
+            <a href="/" tabIndex={isHomePage ? -1 : undefined}>
+              Company 1
+            </a>
+            , working with JavaScript, React, Node and Gatsby.
           </p>
         </div>
         <button
