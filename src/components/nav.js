@@ -142,6 +142,11 @@ const Nav = ({ isHome }) => {
     };
   }, []);
 
+  const setAboutPage = b => {
+    sessionStorage.setItem('isAboutPage', JSON.stringify(b));
+    document.activeElement.blur();
+  };
+
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
@@ -175,7 +180,17 @@ const Nav = ({ isHome }) => {
                 navLinks.map(({ url, name }, i) => (
                   <CSSTransition key={i} classNames={fadeDownClass} timeout={timeout}>
                     <li key={i} style={{ transitionDelay: `${isHome ? i * 100 : 0}ms` }}>
-                      <Link to={url}>{name}</Link>
+                      {name === 'About' ? (
+                        <Link to={url} onClick={() => setAboutPage(true)}>
+                          {name}
+                        </Link>
+                      ) : name === 'Home' ? (
+                        <Link to={url} onClick={() => setAboutPage(false)}>
+                          {name}
+                        </Link>
+                      ) : (
+                        <Link to={url}>{name}</Link>
+                      )}
                     </li>
                   </CSSTransition>
                 ))}

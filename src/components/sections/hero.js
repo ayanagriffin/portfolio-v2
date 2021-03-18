@@ -70,12 +70,20 @@ const StyledHeroSection = styled.section`
 
 const Hero = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [isHomePage, setisHomePage] = useState(true);
+  const [isHomePage, setisHomePage] = useState(!JSON.parse(sessionStorage.getItem('isAboutPage')));
 
   useEffect(() => {
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
     return () => clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    setisHomePage(!JSON.parse(sessionStorage.getItem('isAboutPage')));
+  }, [sessionStorage.getItem('isAboutPage')]);
+
+  const setPage = () => {
+    setisHomePage(!isHomePage);
+  };
 
   const one = <h1>Hey there! I'm</h1>;
   const two = <h2 className="big-heading">Ayana Griffin</h2>;
@@ -86,8 +94,9 @@ const Hero = () => {
       to build meaningful, beautiful, projects.
     </p>
   );
+
   const five = (
-    <button className="email-link" onClick={() => setisHomePage(!isHomePage)}>
+    <button className="email-link" onClick={() => setPage()}>
       About Me
     </button>
   );
@@ -107,7 +116,7 @@ const Hero = () => {
         </TransitionGroup>
       </StyledHeroSection>
 
-      <StyledHeroSection className={isHomePage ? 'inactive-about' : 'active'}>
+      <StyledHeroSection className={isHomePage ? 'inactive-about' : 'active'} id="about">
         <h1>Hi there!</h1>
         <h2 className="big-heading">Nice to meet you!</h2>
 
@@ -132,7 +141,7 @@ const Hero = () => {
         </div>
         <button
           className="email-link"
-          onClick={() => setisHomePage(!isHomePage)}
+          onClick={() => setPage()}
           tabIndex={isHomePage ? -1 : undefined}>
           Back Home
         </button>
