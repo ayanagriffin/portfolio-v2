@@ -1,5 +1,5 @@
-import React from 'react';
-// import emailjs from 'emailjs-com';
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 
 const StyledContactForm = styled.div`
@@ -26,6 +26,7 @@ const StyledFieldset = styled.fieldset`
   z-index: 1000;
   transition: 0.5s;
   color: #9c9c9c;
+  pointer-events: none;
 
   }
   input, textarea{
@@ -40,33 +41,54 @@ const StyledFieldset = styled.fieldset`
     font-family: var(--font-karla);
     font-weight: 300;
     background: var(--background);
-    // background: red;
     height: 30px;
+
+    &:focus ~ label,
+    &:active ~ label,
+    &:valid ~ label,
+    &.filled ~ label{
+      color: #0a466b;
+      font-size: 12px;
+      transform: translateY(-20px);
+      background: transparent;
+    }
 
     }
 
    
   }
-
-
   
 `;
 
 const ContactForm = () => {
-  // const [notSent, pending, success, err] = ['notsent', 'pending', 'success', 'err']
-  // const [sendStatus, setSendStatus] = useState(notSent)
+  const [notSent, success, err] = ['notsent', 'success', 'err'];
+  const [sendStatus, setSendStatus] = useState(notSent);
+  const [emailFilled, setEmailFilled] = useState(false);
   function sendEmail(e) {
     e.preventDefault();
 
-    // emailjs.sendForm('service_3nbtaa9', 'template_42cdf7y', e.target, 'user_4IF04CZQmiVP6b3AubpTu')
-    //   .then((result) => {
-    //     setSendStatus(success)
-    //   }, (error) => {
-    //     setSendStatus(err)
-    //   });
+    emailjs
+      .sendForm('service_3nbtaa9', 'template_42cdf7y', e.target, 'user_4IF04CZQmiVP6b3AubpTu')
+      .then(
+        () => {
+          setSendStatus(success);
+          setEmailFilled(false);
+        },
+        () => {
+          setSendStatus(err);
+          setEmailFilled(false);
+        },
+      );
 
     e.target.reset();
   }
+  const checkEmailLength = event => {
+    if (event.target.value.length > 0) {
+      setEmailFilled(true);
+    } else {
+      setEmailFilled(false);
+    }
+  };
 
   return (
     <StyledContactForm>
@@ -79,7 +101,13 @@ const ContactForm = () => {
           <label htmlFor="name">Name</label>
         </StyledFieldset>
         <StyledFieldset>
-          <input type="email" name="email" required />
+          <input
+            type="email"
+            name="email"
+            onChange={checkEmailLength}
+            className={emailFilled ? 'filled' : 'empty'}
+            required
+          />
           <label htmlFor="email">Email</label>
         </StyledFieldset>
 
@@ -89,12 +117,17 @@ const ContactForm = () => {
         </StyledFieldset>
 
         <StyledFieldset>
+          <textarea name="message" rows={10} style={{ height: '100px' }} required />
           <label htmlFor="message">Message</label>
-          <textarea name="message" />
         </StyledFieldset>
 
-        {/* <input type="submit" value="Send" className='button-link' /> */}
+        <input type="submit" value="Send" className="button-link" />
       </form>
+      {sendStatus === 'success' ? (
+        <p>Your message was sent successfully!</p>
+      ) : sendStatus === 'err' ? (
+        <p>Oops, there was an error sending your message</p>
+      ) : null}
     </StyledContactForm>
   );
 };

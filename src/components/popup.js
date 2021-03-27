@@ -17,7 +17,7 @@ const PopupContainer = styled.div`
 
 const PopupWrapper = styled.div`
   ${({ theme }) => theme.mixins.absoluteCenter};
-  ${({ theme }) => theme.mixins.boxShadow};
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: var(--border-radius);
   width: 500px;
   min-height: 500px;
@@ -33,6 +33,7 @@ const PopupWrapper = styled.div`
     position: absolute;
     top: 1.5rem;
     right: 1rem;
+    padding: 5px;
   }
 `;
 
