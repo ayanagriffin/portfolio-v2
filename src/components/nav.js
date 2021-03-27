@@ -17,7 +17,6 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  // background-color: var(--background);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -72,12 +71,14 @@ const StyledNav = styled.nav`
       &:focus {
         svg {
           rect {
-            fill: var(--secondary-button);
+            fill: var(--blue);
           }
         }
       }
 
       svg {
+        width: 100%;
+        height: 100%;f
         fill: none;
         transition: var(--transition);
         user-select: none;
@@ -114,7 +115,7 @@ const StyledLinks = styled.div`
   }
 
   .resume-button {
-    ${({ theme }) => theme.mixins.secondaryButton};
+    ${({ theme }) => theme.mixins.primaryButton};
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
   }
@@ -143,7 +144,7 @@ const Nav = ({ isHome }) => {
   }, []);
 
   const setAboutPage = b => {
-    sessionStorage.setItem('isAboutPage', JSON.stringify(b));
+    typeof window !== 'undefined' && sessionStorage.setItem('isAboutPage', JSON.stringify(b));
     document.activeElement.blur();
   };
 
@@ -202,7 +203,7 @@ const Nav = ({ isHome }) => {
               <CSSTransition classNames={fadeDownClass} timeout={timeout}>
                 <div style={{ transitionDelay: `${isHome ? navLinks.length * 100 : 0}ms` }}>
                   <a
-                    className="resume-button"
+                    className="resume-button button-link"
                     href="/resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer">

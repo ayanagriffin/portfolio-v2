@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
+import { Icon } from '@components/icons';
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -41,7 +42,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .more-button {
-    ${({ theme }) => theme.mixins.secondaryButton};
+    ${({ theme }) => theme.mixins.primaryButton};
     margin: 80px auto 0;
   }
 `;
@@ -55,6 +56,7 @@ const StyledProject = styled.li`
     margin: 5px 0 20px 0;
     font-size: var(--fz-md);
     font-weight: bold;
+    color: var(--p-text);
   }
   &:hover,
   &:focus-within {
@@ -70,17 +72,35 @@ const StyledProject = styled.li`
     align-items: flex-start;
     position: relative;
     height: 100%;
-    padding: 2rem 1.75rem;
-    padding-bottom: 1.5rem;
+    padding: 2.5rem 2rem;
+    padding-bottom: 2rem;
     border-radius: var(--border-radius);
     
     transition: var(--transition);
   }
 
   .project-top {
-    ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
+    // ${({ theme }) => theme.mixins.flexBetween};
+    // margin-bottom: 35px;
 
+  }
+
+  .project-bottom{
+    color: var(--blue);
+    font-size: var(--fz-md);
+    .inline-link{
+      color: var(--blue);
+    font-size: var(--fz-md);
+    }
+    svg{
+      width: 22px;
+      height: 22px;
+      margin-right: 5px;
+    }
+
+    a{
+      margin-right: 12px;
+    }
   }
 
   .project-title {
@@ -91,23 +111,22 @@ const StyledProject = styled.li`
     a {
       position: static;
 
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 0;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
+      // &:before {
+      //   content: '';
+      //   display: block;
+      //   position: absolute;
+      //   z-index: 0;
+      //   width: 100%;
+      //   height: 100%;
+      //   top: 0;
+      //   left: 0;
+      // }
     }
   }
 
   .project-description {
     color: var(--p-text);
     font-size: var(--fz-md);
-    margin-bottom: 20px;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -118,18 +137,7 @@ const StyledProject = styled.li`
   
   }
 
-  footer{
-    .project-links{
-      .inline-link{
-        ${({ theme }) => theme.mixins.sourceCode};
-        margin-bottom: 0;
-      }
-
-      .button-primary{
-        ${({ theme }) => theme.mixins.button};
-        
-      }
-    }
+  
   }
 `;
 
@@ -188,7 +196,7 @@ const Projects = () => {
           {projectsToShow &&
             projectsToShow.map(({ node }, i) => {
               const { frontmatter, html } = node;
-              const { github, external, title, company } = frontmatter;
+              const { github, external, title, tech } = frontmatter;
 
               return (
                 <CSSTransition
@@ -203,15 +211,7 @@ const Projects = () => {
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
                     }}>
                     <div className="project-inner">
-                      <header>
-                        <div className="project-top">
-                          {company ? (
-                            <p className="small-top-text">{company} project</p>
-                          ) : (
-                            <p className="small-top-text">project</p>
-                          )}
-                        </div>
-
+                      <header className="project-top">
                         <h3 className="project-title">
                           <a href={external}>{title}</a>
                         </h3>
@@ -220,7 +220,7 @@ const Projects = () => {
                           className="project-description"
                           dangerouslySetInnerHTML={{ __html: html }}
                         />
-                        {/* <div className="built-with">
+                        <p className="built-with">
                           Built with
                           {tech.length > 0 &&
                             tech.map((item, i) => (
@@ -231,16 +231,31 @@ const Projects = () => {
                                 {i !== tech.length - 1 && <span className="separator">,</span>}
                               </span>
                             ))}
-                        </div> */}
+                        </p>
                       </header>
-
-                      <footer>
+                      <footer className="project-bottom">
                         <div className="project-links">
-                          {github && !external && (
+                          {github && (
+                            <a href={github} aria-label="GitHub Link">
+                              <Icon name="GitHub" />
+                              <span className="inline-link">Github</span>
+                            </a>
+                          )}
+                          {external && (
+                            <a href={external} aria-label="External Link">
+                              <Icon name="External" />
+                              <span className="inline-link">Live</span>
+                            </a>
+                          )}
+                        </div>
+                      </footer>
+
+                      {/* <div className="project-links"> */}
+                      {/* {github && !external && (
                             <a
                               href={github}
                               aria-label="GitHub Link"
-                              className="button-primary"
+                              className="button-primary button-link"
                               style={{ marginBottom: '25px' }}>
                               view source code
                             </a>
@@ -250,7 +265,7 @@ const Projects = () => {
                             <a
                               href={external}
                               aria-label="GitHub Link"
-                              className="button-primary"
+                              className="button-primary button-link"
                               style={{ marginBottom: '25px' }}>
                               view project
                             </a>
@@ -261,7 +276,7 @@ const Projects = () => {
                               <a
                                 href={external}
                                 aria-label="GitHub Link"
-                                className="button-primary">
+                                className="button-primary button-link">
                                 view project
                               </a>
                               <br />
@@ -272,9 +287,8 @@ const Projects = () => {
                                 view source code
                               </a>
                             </div>
-                          )}
-                        </div>
-                      </footer>
+                          )} */}
+                      {/* </div> */}
                     </div>
                   </StyledProject>
                 </CSSTransition>

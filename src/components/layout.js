@@ -29,7 +29,7 @@ const SkipToContentLink = styled.a`
     padding: 18px 23px;
     outline: 0;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-button);
+    background-color: var(--blue);
     color: var(--background);
     font-size: var(--fz-md);
     font-weight: bold;

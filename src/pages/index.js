@@ -1,22 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Layout, Hero, Featured, Projects, Contact } from '@components';
+import { Layout, Hero, Featured, Projects, Contact, Popup, ContactForm } from '@components';
 
-const StyledMainContainer = styled.main`
-  counter-reset: section;
-`;
+const IndexPage = ({ location }) => {
+  const [formIsOpen, setFormIsOpen] = useState(false);
 
-const IndexPage = ({ location }) => (
-  <Layout location={location}>
-    <StyledMainContainer className="fillHeight">
-      <Hero />
-      <Featured />
-      <Projects />
-      <Contact />
-    </StyledMainContainer>
-  </Layout>
-);
+  const closeForm = () => {
+    setFormIsOpen(false);
+    window.onscroll = function() {};
+  };
+
+  const openForm = () => {
+    setFormIsOpen(true);
+  };
+
+  return (
+    <Layout location={location}>
+      <main className="fillHeight">
+        <Hero />
+        <Featured />
+        <Projects />
+        <Contact openForm={openForm} />
+        {formIsOpen && (
+          <Popup closeForm={closeForm}>
+            <ContactForm />
+          </Popup>
+        )}
+      </main>
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
   location: PropTypes.object.isRequired,

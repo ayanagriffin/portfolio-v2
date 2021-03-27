@@ -21,7 +21,7 @@ const StyledSubtitle = styled.h2`
   font-weight: 400;
 `;
 const StyledHomeButton = styled(Link)`
-  ${({ theme }) => theme.mixins.secondaryButton};
+  ${({ theme }) => theme.mixins.primaryButton};
   margin-top: 40px;
 `;
 
@@ -43,7 +43,9 @@ const NotFoundPage = ({ location }) => {
             <StyledMainContainer className="fillHeight">
               <StyledTitle>404</StyledTitle>
               <StyledSubtitle>Page Not Found</StyledSubtitle>
-              <StyledHomeButton to="/">Go Home</StyledHomeButton>
+              <StyledHomeButton className="button-link" to="/">
+                Go Home
+              </StyledHomeButton>
             </StyledMainContainer>
           </CSSTransition>
         )}

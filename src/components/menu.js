@@ -141,7 +141,7 @@ const StyledSidebar = styled.aside`
   }
 
   .resume-link {
-    ${({ theme }) => theme.mixins.secondaryButton};
+    ${({ theme }) => theme.mixins.primaryButton};
     ${({ theme }) => theme.mixins.medButton};
     font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
 `;
@@ -253,7 +253,7 @@ const Menu = () => {
               </ol>
             )}
 
-            <a href="/resume.pdf" className="resume-link">
+            <a href="/resume.pdf" className="resume-link button-link">
               Resume
             </a>
           </nav>

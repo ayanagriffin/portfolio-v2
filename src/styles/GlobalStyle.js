@@ -10,11 +10,11 @@ const GlobalStyle = createGlobalStyle`
 
     --background: #ffffff;
     --large-text: #3F3D56;
-    --primary-button: #F3C444;
+    --yellow: #F3C444;
     --accent-text: #015E60;
-    --secondary-button: #39A0FF;
-    --p-text: #7F7F7E;
-    --main-text: #000000;
+    --blue: #0075E3;
+    --p-text: #6E6D8C;
+    --main-text: #3A3A5B;
 
     --hamburger: #000000;
 
@@ -62,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
 
 
   :focus {
-    outline: 2px dashed var(--secondary-button);
+    outline: 2px dashed var(--blue);
     outline-offset: 3px;
   }
 
@@ -75,7 +75,7 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     background-color: var(--background);
     color: var(--main-text);
-    font-family: var(--font-karla);
+    font-family: var(--font-poppins);
     font-size: var(--fz-xl);
     line-height: 1.3;
 
@@ -163,7 +163,7 @@ const GlobalStyle = createGlobalStyle`
   h5,
   h6 {
     margin: 0 0 10px 0;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--main-text);
     line-height: 1.1;
   }
@@ -171,15 +171,12 @@ const GlobalStyle = createGlobalStyle`
   .big-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 80px);
-    font-family: var(--font-poppins);
     font-weight: bold;
   }
 
   .medium-heading {
     margin: 20px 0 10px 0;
-    // color: var(--p-text);
-    font-size: clamp(32px, 6vw, 50px);
-    font-family: var(--font-poppins);
+    font-size: clamp(30px, 6vw, 60px);
   }
 
   img,
@@ -196,8 +193,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   svg {
-    width: 100%;
-    height: 100%;
+
+    width: 18px;
+    margin-top: -2px;
+    color: var(--blue);
+
     fill: currentColor;
     vertical-align: middle;
 
@@ -215,20 +215,51 @@ const GlobalStyle = createGlobalStyle`
     transition: var(--transition);
     cursor: pointer;
 
-    &.inline-link {
+    &.inline-link, .inline-link {
       ${({ theme }) => theme.mixins.inlineLink};
 
       }
+
   }
 
  
-  button {
+  button:not(.icon), .button-link {
+    font-family: var(--font-poppins);
     cursor: pointer;
     border: 0;
-    border-radius: 0;
+    border-radius: var(--border-radius);
+    padding: 1rem 2rem;
+    font-size: var(--fz-md);
+    font-weight: 600;
+    text-transform: capitalize;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    letter-spacing: 0.75px;
+
+    &:after {
+      display: none !important;
+    }
   }
 
-  input, textarea {
+  .icon{
+    background: transparent;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    transition: var(--transition);
+    &:hover{
+      transform: scale(0.9);
+    }
+    &:focus,
+    &:active {
+      outline: 2px dashed var(--blue);
+      outline-offset: 3px;
+    }
+  }
+
+  input:not(.button-link), textarea {
     border-radius: 0;
     outline: 0;
 
@@ -245,18 +276,18 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 15px 0;
-
+    font-family: var(--font-karla);
     &:last-child,
     &:last-of-type {
       margin: 0;
     }
 
-    & > a {
+    & > a:not(.icon) {
       ${({ theme }) => theme.mixins.inlineLink};
     }
 
     // & > code {
-    //   background-color: var(--primary-button);
+    //   background-color: var(--yellow);
     //   color: var(--white);
     //   font-size: var(--fz-sm);
     //   border-radius: var(--border-radius);
@@ -278,7 +309,7 @@ const GlobalStyle = createGlobalStyle`
   //         content: '▹';
   //         position: absolute;
   //         left: 0;
-  //         color: var(--secondary-button);
+  //         color: var(--blue);
   //       }
   //     }
   //   }

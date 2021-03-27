@@ -4,6 +4,7 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 import sr from '@utils/sr';
 import { srConfig } from '@config';
+import { IconGitHub } from '@components/icons';
 
 const StyledProjectsGrid = styled.ul`
   ${({ theme }) => theme.mixins.resetList};
@@ -68,29 +69,29 @@ h3{
   justify-content: center;
   font-size: var(--fz-lg);
   .button-primary{
-    ${({ theme }) => theme.mixins.button};
+    ${({ theme }) => theme.mixins.yellowButton};
     margin-bottom: 8px;
-  }
-  .small-top-text{
-    margin-bottom: 15px;
   }
 
   .project-description{
-    margin: 20px 0 8px 0;
+    margin: 5px 0;
+    color: var(--p-text);
   }
 
   .built-with{
+    display: flex;
+    align-items: center;
     margin-bottom: 30px;
-    font-weight: bold;
-  }
+   
 
-  .project-links{
-    .inline-link{
-      ${({ theme }) => theme.mixins.sourceCode};
-     
+    p{
+      font-weight: bold;
+      margin-right: 8px;
+    
     }
-  }
 
+  }
+  
  
 }
 
@@ -103,6 +104,8 @@ h3{
   a {
     width: 100%;
 }
+
+
 `;
 
 const Featured = () => {
@@ -158,50 +161,39 @@ const Featured = () => {
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
                 <div className="project-content">
-                  <p className="small-top-text">featured</p>
                   <h3 className="project-title">
                     <a href={external}>{title}</a>
                   </h3>
 
                   <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
                   <div className="built-with">
-                    Built with
-                    {tech.length > 0 &&
-                      tech.map((item, i) => (
-                        <span key={i}>
-                          {' '}
-                          {i === tech.length - 1 && <span className="separator">and </span>}
-                          {item}
-                          {i !== tech.length - 1 && <span className="separator">,</span>}
-                        </span>
-                      ))}
+                    <p>
+                      Built with
+                      {tech.length > 0 &&
+                        tech.map((item, i) => (
+                          <span key={i}>
+                            {' '}
+                            {i === tech.length - 1 && <span className="separator">and </span>}
+                            {item}
+                            {i !== tech.length - 1 && <span className="separator">,</span>}
+                            {i === tech.length - 1 && <span>&nbsp;</span>}
+                          </span>
+                        ))}
+                      {github && (
+                        <a href={github} aria-label="GitHub Link" className="icon">
+                          <IconGitHub />
+                        </a>
+                      )}
+                    </p>
                   </div>
-
-                  {external && github && (
-                    <div className="project-links">
-                      <a href={external} aria-label="Project Link" className="button-primary">
-                        View {title}
-                      </a>
-                      <br />
-                      <a href={github} aria-label="GitHub Link" className="inline-link">
-                        view source code
-                      </a>
-                    </div>
-                  )}
-                  {!external && github && (
-                    <div className="project-links">
-                      <a href={github} aria-label="GitHub Link" className="button-primary">
-                        View Source Code
-                      </a>
-                    </div>
-                  )}
-                  {external && !github && (
-                    <div className="project-links">
-                      <a href={external} aria-label="Project Link" className="button-primary">
-                        View {title}
-                      </a>
-                    </div>
-                  )}
+                  <div className="project-link">
+                    <a
+                      href={external ? external : github}
+                      aria-label="Project Link"
+                      className="button-primary button-link">
+                      View {title}
+                    </a>
+                  </div>
                 </div>
 
                 <div className="project-image">

@@ -56,6 +56,16 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+              fonts: [
+                `poppins:300,400,500,600,700,800`,
+                `karla:300,400,500,600,700,800`, // you can also specify font weights and styles
+              ],
+              display: 'swap',
+            },
+          },
+          {
             // https://www.gatsbyjs.org/packages/gatsby-remark-external-links
             resolve: 'gatsby-remark-external-links',
             options: {

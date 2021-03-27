@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { srConfig, email } from '@config';
+import { srConfig } from '@config';
 import sr from '@utils/sr';
 
 const StyledContactSection = styled.section`
@@ -34,13 +35,13 @@ const StyledContactSection = styled.section`
     font-size: clamp(40px, 5vw, 60px);
   }
 
-  .email-link {
-    ${({ theme }) => theme.mixins.secondaryButton};
+  .contact-link {
+    ${({ theme }) => theme.mixins.primaryButton};
     margin-top: 50px;
   }
 `;
 
-const Contact = () => {
+const Contact = ({ openForm }) => {
   const revealContainer = useRef(null);
   useEffect(() => sr.reveal(revealContainer.current, srConfig()), []);
 
@@ -55,11 +56,15 @@ const Contact = () => {
         Whether you have a question or just want to say hi, I'll try my best to get back to you!
       </p>
 
-      <a className="email-link" href={`mailto:${email}`}>
+      <button className="contact-link" onClick={openForm}>
         Say Hello
-      </a>
+      </button>
     </StyledContactSection>
   );
+};
+
+Contact.propTypes = {
+  openForm: PropTypes.func,
 };
 
 export default Contact;

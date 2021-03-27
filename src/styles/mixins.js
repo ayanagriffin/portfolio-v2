@@ -24,7 +24,7 @@ const mixins = {
     &:hover,
     &:active,
     &:focus {
-      color: var(--secondary-button);
+      color: var(--blue);
       outline: 0;
     }
   `,
@@ -36,17 +36,17 @@ const mixins = {
     position: relative;
     transition: var(--transition);
     cursor: pointer;
-    color: var(--secondary-button);
+    color: var(--blue);
     &:hover,
     &:focus,
     &:active {
-      color: var(--secondary-button);
+      color: var(--blue);
       outline: 0;
       &:after {
         width: 100%;
       }
       & > * {
-        color: var(--secondary-button) !important;
+        color: var(--blue) !important;
         transition: var(--transition);
       }
     }
@@ -57,7 +57,7 @@ const mixins = {
       height: 1px;
       position: relative;
       bottom: 3px;
-      background-color: var(--secondary-button);
+      background-color: var(--blue);
       transition: var(--transition);
       opacity: 0.5;
     }
@@ -91,23 +91,6 @@ const mixins = {
     }
   `,
 
-  button: css`
-    background-color: var(--primary-button);
-    border-radius: var(--border-radius);
-    padding: 8px 40px;
-    font-weight: bold;
-    letter-spacing: 0.75px;
-    font-size: var(--fz-md);
-    text-transform: capitalize;
-    transition: var(--transition);
-    white-space: nowrap;
-    &:hover,
-    &:focus,
-    &:active {
-      transform: scale(0.95);
-    }
-  `,
-
   smallButton: css`
     font-size: var(--fz-xs);
     padding: 0.75rem 1rem;
@@ -118,30 +101,43 @@ const mixins = {
     padding: 0.75rem 1rem;
   `,
 
-  //TODO:change name to secondary button
-  secondaryButton: css`
-    color: var(--secondary-button);
-    background-color: transparent;
-    border: 2px solid var(--secondary-button);
-    border-radius: var(--border-radius);
-    padding: 1rem 2rem;
-    font-size: var(--fz-md);
-    font-weight: bold;
-    text-transform: capitalize;
-    line-height: 1;
-    text-decoration: none;
-    cursor: pointer;
-    transition: var(--transition);
-    letter-spacing: 0.75px;
+  primaryButton: css`
+    color: var(--background);
+    background-color: var(--blue);
+    box-shadow: 0px 3px 17px rgba(81, 159, 231, 30%);
     &:hover,
     &:focus,
     &:active {
       color: var(--background);
-      background-color: var(--secondary-button);
+      background-color: var(--blue);
       transform: scale(0.95);
     }
-    &:after {
-      display: none !important;
+  `,
+
+  transparentButton: css`
+    background-color: var(--background);
+    color: var(--blue);
+    // font-weight: 700;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--background);
+      color: var(--blue);
+      transform: scale(0.95);
+    }
+  `,
+
+  yellowButton: css`
+    background-color: var(--yellow);
+    color: var(--main-text);
+    box-shadow: 0px 3px 17px rgba(294, 197, 68, 50%);
+    // font-weight: 600;
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--yellow);
+      color: var(--main-text);
+      transform: scale(0.95);
     }
   `,
 
@@ -155,28 +151,17 @@ const mixins = {
     }
   `,
 
-  // fancyList: css`
-  //   padding: 0;
-  //   margin: 0;
-  //   list-style: none;
-  //   font-size: var(--fz-lg);
-  //   li {
-  //     position: relative;
-  //     padding-left: 30px;
-  //     margin-bottom: 10px;
-  //     &:before {
-  //       content: '▹';
-  //       position: absolute;
-  //       left: 0;
-  //       color: var(--green);
-  //     }
-  //   }
-  // `,
-
   resetList: css`
     list-style: none;
     padding: 0;
     margin: 0;
+  `,
+
+  absoluteCenter: css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   `,
 };
 
