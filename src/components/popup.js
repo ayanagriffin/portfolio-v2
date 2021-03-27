@@ -17,14 +17,22 @@ const PopupContainer = styled.div`
 
 const PopupWrapper = styled.div`
   ${({ theme }) => theme.mixins.absoluteCenter};
-
+  ${({ theme }) => theme.mixins.boxShadow};
+  border-radius: var(--border-radius);
   width: 500px;
-  height: 500px;
-  background: #f7f7f7;
+  min-height: 500px;
+  padding: 3rem;
+  background: var(--background);
 
   svg {
     width: 20px;
     height: 20px;
+  }
+
+  button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
   }
 `;
 
