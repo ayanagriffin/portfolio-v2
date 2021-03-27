@@ -15,12 +15,20 @@ const StyledFieldset = styled.fieldset`
   border: none;
   padding: 10px;
   padding-left: 0;
-  margin-bottom: 30px;
   position: relative;
   width: 100%;
 
-  input,
-  textarea {
+  label{
+    position: absolute;
+  left: 0;
+  font-size: 0.9rem;
+  margin-top: 18px;
+  z-index: 1000;
+  transition: 0.5s;
+  color: #9c9c9c;
+
+  }
+  input, textarea{
     width: 100%;
     padding: 5px 0;
     margin: 10px 0;
@@ -32,14 +40,16 @@ const StyledFieldset = styled.fieldset`
     font-family: var(--font-karla);
     font-weight: 300;
     background: var(--background);
-    background: red;
+    // background: red;
     height: 30px;
+
+    }
+
+   
   }
 
-  label {
-    position: absolute;
-    top: 50%;
-  }
+
+  
 `;
 
 const ContactForm = () => {
@@ -65,17 +75,17 @@ const ContactForm = () => {
         <input type="hidden" name="contact_number" required />
 
         <StyledFieldset>
-          <label htmlFor="name">Name</label>
           <input type="text" name="name" required />
+          <label htmlFor="name">Name</label>
         </StyledFieldset>
         <StyledFieldset>
-          <label htmlFor="email">Email</label>
           <input type="email" name="email" required />
+          <label htmlFor="email">Email</label>
         </StyledFieldset>
 
         <StyledFieldset>
-          <label htmlFor="subject">Subject</label>
           <input type="text" name="subject" required />
+          <label htmlFor="subject">Subject</label>
         </StyledFieldset>
 
         <StyledFieldset>
