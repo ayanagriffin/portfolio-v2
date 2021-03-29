@@ -1,6 +1,7 @@
 module.exports = {
-  email: 'brittany.chiang@gmail.com',
+  email: 'hi@ayanagriffin.com',
 
+  linkedin: 'https://www.linkedin.com/in/ayanagriffin',
   socialMedia: [
     {
       name: 'GitHub',
@@ -16,7 +17,7 @@ module.exports = {
     },
     {
       name: 'Linkedin',
-      url: 'https://www.linkedin.com/in/bchiang7',
+      url: 'https://www.linkedin.com/in/ayanagriffin',
     },
     {
       name: 'Codepen',

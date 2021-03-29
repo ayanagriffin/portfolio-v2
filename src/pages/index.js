@@ -4,7 +4,14 @@ import { Layout, Hero, Featured, Projects, Contact, Popup, ContactForm } from '@
 
 const IndexPage = ({ location }) => {
   const [formIsOpen, setFormIsOpen] = useState(false);
+  const initialContactForm = {
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  };
 
+  const [formValues, setFormValues] = useState(initialContactForm);
   const closeForm = () => {
     setFormIsOpen(false);
     window.onscroll = function() {};
@@ -23,7 +30,11 @@ const IndexPage = ({ location }) => {
         <Contact openForm={openForm} />
         {formIsOpen && (
           <Popup closeForm={closeForm}>
-            <ContactForm />
+            <ContactForm
+              setFormValues={setFormValues}
+              formValues={formValues}
+              emptyForm={initialContactForm}
+            />
           </Popup>
         )}
       </main>

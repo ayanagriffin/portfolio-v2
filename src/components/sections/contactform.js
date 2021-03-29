@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { linkedin, email } from '@config';
 
 const StyledContactForm = styled.div`
   padding: 1rem 0;
@@ -8,6 +10,25 @@ const StyledContactForm = styled.div`
     .button-link {
       ${({ theme }) => theme.mixins.primaryButton};
     }
+  }
+
+  .fieldset-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 0;
+    }
+  }
+
+  .button-link {
+    margin-top: 20px;
+  }
+
+  p {
+    font-size: var(--fz-lg);
+    margin-top: 20px;
   }
 `;
 
@@ -49,10 +70,17 @@ const StyledFieldset = styled.fieldset`
     &.filled ~ label{
       color: #0a466b;
       font-size: 12px;
-      transform: translateY(-20px);
+      transform: translateY(-25px);
       background: transparent;
     }
 
+    }
+
+    textarea{
+      height: 100px;
+    }
+    .message-label{
+      transform: translateY(70px);
     }
 
    
@@ -60,10 +88,11 @@ const StyledFieldset = styled.fieldset`
   
 `;
 
-const ContactForm = () => {
+const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
   const [notSent, success, err] = ['notsent', 'success', 'err'];
   const [sendStatus, setSendStatus] = useState(notSent);
   const [emailFilled, setEmailFilled] = useState(false);
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -73,20 +102,27 @@ const ContactForm = () => {
         () => {
           setSendStatus(success);
           setEmailFilled(false);
+          setFormValues(emptyForm);
         },
         () => {
           setSendStatus(err);
           setEmailFilled(false);
         },
       );
-
-    e.target.reset();
   }
-  const checkEmailLength = event => {
-    if (event.target.value.length > 0) {
-      setEmailFilled(true);
-    } else {
-      setEmailFilled(false);
+
+  const updateFormValues = e => {
+    const { name, value } = e.target;
+    setFormValues(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
+    if (name === 'email') {
+      if (e.target.value.length > 0) {
+        setEmailFilled(true);
+      } else {
+        setEmailFilled(false);
+      }
     }
   };
 
@@ -95,41 +131,72 @@ const ContactForm = () => {
       <h3>Send a message</h3>
       <form onSubmit={sendEmail}>
         <input type="hidden" name="contact_number" required />
+        <div className="fieldset-row">
+          <StyledFieldset>
+            <input
+              type="text"
+              name="name"
+              value={formValues.name}
+              onChange={updateFormValues}
+              required
+            />
+            <label htmlFor="name">Name</label>
+          </StyledFieldset>
+          <StyledFieldset>
+            <input
+              type="email"
+              name="email"
+              value={formValues.email}
+              onChange={updateFormValues}
+              className={emailFilled ? 'filled' : 'empty'}
+              required
+            />
+            <label htmlFor="email">Email</label>
+          </StyledFieldset>
+        </div>
 
-        <StyledFieldset>
-          <input type="text" name="name" required />
-          <label htmlFor="name">Name</label>
-        </StyledFieldset>
         <StyledFieldset>
           <input
-            type="email"
-            name="email"
-            onChange={checkEmailLength}
-            className={emailFilled ? 'filled' : 'empty'}
+            type="text"
+            name="subject"
+            value={formValues.subject}
+            onChange={updateFormValues}
             required
           />
-          <label htmlFor="email">Email</label>
-        </StyledFieldset>
-
-        <StyledFieldset>
-          <input type="text" name="subject" required />
           <label htmlFor="subject">Subject</label>
         </StyledFieldset>
 
         <StyledFieldset>
-          <textarea name="message" rows={10} style={{ height: '100px' }} required />
-          <label htmlFor="message">Message</label>
+          <textarea
+            name="message"
+            value={formValues.message}
+            onChange={updateFormValues}
+            required
+          />
+          <label className="message-label" htmlFor="message">
+            Message
+          </label>
         </StyledFieldset>
 
         <input type="submit" value="Send" className="button-link" />
       </form>
       {sendStatus === 'success' ? (
-        <p>Your message was sent successfully!</p>
+        <p>Thank you for your message, I'll be in touch soon!</p>
       ) : sendStatus === 'err' ? (
-        <p>Oops, there was an error sending your message</p>
+        <p>
+          Oops, there was an error sending your message... Please try{' '}
+          <a href={`mailto:${email}`}>emailing me</a> or messaging me on{' '}
+          <a href={linkedin}>LinkedIn</a>
+        </p>
       ) : null}
     </StyledContactForm>
   );
+};
+
+ContactForm.propTypes = {
+  formValues: PropTypes.object,
+  setFormValues: PropTypes.func,
+  emptyForm: PropTypes.object,
 };
 
 export default ContactForm;

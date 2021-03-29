@@ -19,9 +19,13 @@ const PopupWrapper = styled.div`
   ${({ theme }) => theme.mixins.absoluteCenter};
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   border-radius: var(--border-radius);
-  width: 500px;
-  min-height: 500px;
+  width: clamp(400px, 75vw, 800px);
   padding: 3rem;
+  @media (max-width: 768px) {
+    width: 90vw;
+    padding: 2rem;
+  }
+
   background: var(--background);
 
   svg {
