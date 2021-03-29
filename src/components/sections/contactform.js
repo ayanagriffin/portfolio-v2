@@ -185,8 +185,16 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
       ) : sendStatus === 'err' ? (
         <p>
           Oops, there was an error sending your message... Please try{' '}
-          <a href={`mailto:${email}`}>emailing me</a> or messaging me on{' '}
-          <a href={linkedin}>LinkedIn</a>
+          <a
+            href={`mailto:${email}?subject=${formValues.subject}&body=${formValues.message}`}
+            target="_blank"
+            rel="noreferrer">
+            emailing me
+          </a>{' '}
+          or messaging me on{' '}
+          <a href={linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
         </p>
       ) : null}
     </StyledContactForm>
@@ -194,9 +202,9 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
 };
 
 ContactForm.propTypes = {
-  formValues: PropTypes.object,
-  setFormValues: PropTypes.func,
-  emptyForm: PropTypes.object,
+  formValues: PropTypes.object.isRequired,
+  setFormValues: PropTypes.func.isRequired,
+  emptyForm: PropTypes.object.isRequired,
 };
 
 export default ContactForm;

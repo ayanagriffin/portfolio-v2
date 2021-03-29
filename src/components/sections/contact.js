@@ -64,7 +64,7 @@ const Contact = ({ openForm }) => {
 };
 
 Contact.propTypes = {
-  openForm: PropTypes.func,
+  openForm: PropTypes.func.isRequired,
 };
 
 export default Contact;
