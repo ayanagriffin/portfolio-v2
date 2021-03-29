@@ -32,7 +32,6 @@ const SkipToContentLink = styled.a`
     background-color: var(--blue);
     color: var(--background);
     font-size: var(--fz-md);
-    font-weight: bold;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;
@@ -72,7 +71,9 @@ const Layout = ({ children, location }) => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
 
-          <SkipToContentLink href="#content">Skip to Content</SkipToContentLink>
+          <SkipToContentLink className="button-link" href="#content">
+            Skip to Content
+          </SkipToContentLink>
 
           {/* {isLoading && isHome ? (
             <Loader finishLoading={() => setIsLoading(false)} />

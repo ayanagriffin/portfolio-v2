@@ -16,6 +16,8 @@ import {
   IconTwitter,
   IconZap,
   IconClose,
+  IconMail,
+  IconResume,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -50,6 +52,10 @@ const Icon = ({ name }) => {
       return <IconZap />;
     case 'Close':
       return <IconClose />;
+    case 'Mail':
+      return <IconMail />;
+    case 'Resume':
+      return <IconResume />;
     default:
       return <IconExternal />;
   }

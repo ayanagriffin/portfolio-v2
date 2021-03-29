@@ -22,7 +22,7 @@ const StyledHamburgerButton = styled.button`
     position: relative;
     z-index: 10;
     margin-right: -15px;
-    padding: 15px;
+    padding: 15px !important;
     border: 0;
     background-color: transparent;
     color: inherit;
@@ -233,7 +233,11 @@ const Menu = () => {
       </Helmet>
 
       <div ref={wrapperRef}>
-        <StyledHamburgerButton onClick={toggleMenu} menuOpen={menuOpen} ref={buttonRef}>
+        <StyledHamburgerButton
+          className="hamburger-menu-button"
+          onClick={toggleMenu}
+          menuOpen={menuOpen}
+          ref={buttonRef}>
           <div className="ham-box">
             <div className="ham-box-inner" />
           </div>

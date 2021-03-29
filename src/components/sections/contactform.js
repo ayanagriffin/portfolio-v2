@@ -46,7 +46,7 @@ const StyledFieldset = styled.fieldset`
   margin-top: 18px;
   z-index: 1000;
   transition: 0.5s;
-  color: #9c9c9c;
+  color: var(--p-text);
   pointer-events: none;
 
   }
@@ -68,7 +68,7 @@ const StyledFieldset = styled.fieldset`
     &:active ~ label,
     &:valid ~ label,
     &.filled ~ label{
-      color: #0a466b;
+      color: var(--blue);
       font-size: 12px;
       transform: translateY(-25px);
       background: transparent;
@@ -193,7 +193,7 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
           </a>{' '}
           or messaging me on{' '}
           <a href={linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
+            LinkedIn!
           </a>
         </p>
       ) : null}

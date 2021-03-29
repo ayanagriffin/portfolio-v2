@@ -14,7 +14,6 @@ const StyledTableContainer = styled.div`
   @media (max-width: 768px) {
     margin: 50px -10px;
   }
-
   table {
     width: 100%;
     border-collapse: collapse;
@@ -24,11 +23,13 @@ const StyledTableContainer = styled.div`
         display: none;
       }
     }
-
+    tbody {
+      font-family: var(--font-karla);
+    }
     tbody tr {
       &:hover,
       &:focus {
-        background-color: red;
+        background-color: #f7f7f7;
       }
     }
 
@@ -147,7 +148,7 @@ const ArchivePage = ({ location, data }) => {
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
-          <p className="subtitle">A big list of things I’ve worked on</p>
+          <p style={{ fontFamily: 'var(--font-karla)' }}>A big list of things I’ve worked on</p>
         </header>
 
         <StyledTableContainer ref={revealTable}>

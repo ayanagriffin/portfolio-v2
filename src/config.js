@@ -1,27 +1,23 @@
 module.exports = {
   email: 'hi@ayanagriffin.com',
-
   linkedin: 'https://www.linkedin.com/in/ayanagriffin',
+
   socialMedia: [
     {
       name: 'GitHub',
-      url: 'https://github.com/bchiang7',
-    },
-    {
-      name: 'Instagram',
-      url: 'https://www.instagram.com/bchiang7',
-    },
-    {
-      name: 'Twitter',
-      url: 'https://twitter.com/bchiang7',
+      url: 'https://github.com/ayanagriffin',
     },
     {
       name: 'Linkedin',
       url: 'https://www.linkedin.com/in/ayanagriffin',
     },
     {
-      name: 'Codepen',
-      url: 'https://codepen.io/bchiang7',
+      name: 'Mail',
+      url: 'mailto:hi@ayanagriffin.com',
+    },
+    {
+      name: 'Resume',
+      url: 'resume.pdf',
     },
   ],
 

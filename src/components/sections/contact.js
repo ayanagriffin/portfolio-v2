@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { srConfig } from '@config';
+import { srConfig, linkedin, email } from '@config';
 import sr from '@utils/sr';
 
 const StyledContactSection = styled.section`
@@ -52,8 +52,9 @@ const Contact = ({ openForm }) => {
       <h2 className="title">Get In Touch</h2>
 
       <p>
-        Although I'm not currently looking for any new opportunities, my inbox is always open.
-        Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        I love to chat about new opportunities as well as my past and current work! Feel free to
+        message me on <a href={linkedin}>LinkedIn</a>, send me an{' '}
+        <a href={`mailto:${email}`}>email</a>, or simply fill out the contact form below!
       </p>
 
       <button className="contact-link" onClick={openForm}>

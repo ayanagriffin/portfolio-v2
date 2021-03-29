@@ -14,3 +14,5 @@ export { default as IconStar } from './star';
 export { default as IconTwitter } from './twitter';
 export { default as IconZap } from './zap';
 export { default as IconClose } from './close';
+export { default as IconMail } from './mail';
+export { default as IconResume } from './resume';
