@@ -36,15 +36,17 @@ const StyledSocialLinks = styled.div`
 `;
 
 const StyledCredit = styled.div`
-  font-family: var(--font-poppins);
   font-size: var(--fz-xs);
   line-height: 1;
   padding: 20px;
   padding-top: 10px;
 
-  a {
-    ${({ theme }) => theme.mixins.inlineLink};
-    ${({ theme }) => theme.mixins.navLink};
+  p {
+    font-family: var(--font-poppins);
+    a {
+      ${({ theme }) => theme.mixins.inlineLink};
+      ${({ theme }) => theme.mixins.navLink};
+    }
   }
 `;
 
@@ -63,7 +65,10 @@ const Footer = () => (
       </ul>
     </StyledSocialLinks>
     <StyledCredit>
-      <a href="https://brittanychiang.com/">Made by Brittany Chiang</a>
+      <p>
+        Designed and built by <a href="https://brittanychiang.com/">Brittany Chiang</a> and{' '}
+        <a href="https://github.com/ayanagriffin/portfolio-v2">Ayana Griffin</a>
+      </p>
     </StyledCredit>
   </StyledFooter>
 );
