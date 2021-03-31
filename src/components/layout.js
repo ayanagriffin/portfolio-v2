@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Head, Nav, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
-import '@fontsource/karla';
-import '@fontsource/poppins';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
 if (typeof window !== 'undefined') {
