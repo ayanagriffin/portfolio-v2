@@ -217,7 +217,9 @@ const Hero = () => {
     </div>
   );
 
+  const img = <Img fluid={data.avatar.childImageSharp.fluid} alt="Avatar" className="img" />;
   const items = [smallHeader, bigHeader, subtext, buttons];
+  const imgItems = [img];
 
   return (
     <HeroContainer>
@@ -232,8 +234,15 @@ const Hero = () => {
               ))}
           </TransitionGroup>
         </div>
-        <div className="img-content animate__animated animate__bounce">
-          <Img fluid={data.avatar.childImageSharp.fluid} alt="Avatar" className="img" />
+        <div className="img-content">
+          <TransitionGroup component={null}>
+            {isMounted &&
+              imgItems.map((item, i) => (
+                <CSSTransition key={i} classNames="fadeup" timeout={loaderDelay}>
+                  {item}
+                </CSSTransition>
+              ))}
+          </TransitionGroup>
         </div>
       </StyledHomeSection>
 

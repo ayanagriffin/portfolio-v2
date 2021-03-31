@@ -237,7 +237,8 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     transition: var(--transition);
     letter-spacing: 0.75px;
-
+    -webkit-appearance: none;
+    -moz-appearance: none;
     &:after {
       display: none !important;
     }
