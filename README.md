@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/bchiang7/v4/main/src/images/logo.png" width="100" />
+  <img alt="Logo" src="https://user-images.githubusercontent.com/69114559/113083703-7db17780-9191-11eb-8e3a-1832beb4fa41.png" width="100" />
 </div>
 <h1 align="center">
   ayanagriffin.com
@@ -9,7 +9,8 @@
 </p>
 <p align="center">
   Previous iterations:
-  <a href="https://github.com/ayanagriffin/portfolio-v1" target="_blank">v1</a>,
+  <a href="https://github.com/ayanagriffin/portfolio-v1" target="_blank">v1</a>
+
 </p>
 
 ![demo](https://user-images.githubusercontent.com/69114559/113083532-34612800-9191-11eb-937f-3d11a133bf24.png)
