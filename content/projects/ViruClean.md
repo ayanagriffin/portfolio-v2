@@ -12,4 +12,4 @@ company: 'MelonJam Hackathon'
 showInProjects: true
 ---
 
-An interactive game where users have to clean their house of a pesky virus. However, instead of using the mouse or arrow keys to move around the house, users must pose for the camera to move. Check out the [Devpost submission video](https://www.youtube.com/watch?v=NRiTmPFSTV8).
+An interactive game where users must pose for the camera to move around a house and get rid of a virus. Check out the [Devpost submission video](https://www.youtube.com/watch?v=NRiTmPFSTV8).

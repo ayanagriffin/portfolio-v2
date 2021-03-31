@@ -5,6 +5,7 @@ github: ''
 external: 'https://trillproject.com'
 tech:
   - Webflow
+  - CMS
   - CSS
   - JavaScript
 company: 'Trill Project'

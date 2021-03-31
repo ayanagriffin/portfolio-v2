@@ -58,7 +58,7 @@ const Contact = ({ openForm }) => {
       </p>
 
       <button className="contact-link" onClick={openForm}>
-        Say Hello
+        Say Hi
       </button>
     </StyledContactSection>
   );

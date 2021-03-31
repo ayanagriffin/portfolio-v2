@@ -12,4 +12,4 @@ company: 'TechTogether Boston'
 showInProjects: true
 ---
 
-A web app that condenses information about political candidates to help people be more informed and encouraged to vote. These candidates and their positions are then brought right to your living room via Augmented Reality.
+A web app that condenses political information, then brings candidates into your living room via augmented reality.

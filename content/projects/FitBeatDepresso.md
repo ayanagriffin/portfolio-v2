@@ -13,4 +13,4 @@ company: 'HackMIT 2020'
 showInProjects: true
 ---
 
-A platform that helps predict and check your loved ones' mental health with Fitbit API. Mood scores are calculated using machine learning, then shared with a trusted circle so loved ones.
+A platform that helps predict and check your loved ones' mental health and mood with the Fitbit API and machine learning.

@@ -231,7 +231,6 @@ const GlobalStyle = createGlobalStyle`
     padding: 1rem 2rem;
     font-size: var(--fz-md);
     font-weight: 600;
-    text-transform: capitalize;
     line-height: 1;
     text-decoration: none;
     cursor: pointer;

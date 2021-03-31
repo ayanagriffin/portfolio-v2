@@ -12,4 +12,4 @@ company: ''
 showInProjects: true
 ---
 
-A face recognition model that allows you to create an account, upload images for the model (Clarafai API) to detect faces in, then keep track of how many faces you've detected and compare your score to other users'.
+Create an account, upload images for Clarafai API to detect faces in, then keep track of how many faces you've detected and compare your score to other users'.
