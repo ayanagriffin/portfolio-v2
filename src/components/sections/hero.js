@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -175,6 +175,8 @@ const Hero = () => {
   `);
 
   const [isMounted, setIsMounted] = useState(false);
+  const [isBackHome, setIsBackHome] = useState(false);
+  const buttonRef = useRef(null);
   const [isHomePage, setisHomePage] = useState(
     !JSON.parse(typeof window !== 'undefined' && sessionStorage.getItem('isAboutPage')),
   );
@@ -191,7 +193,12 @@ const Hero = () => {
   }, [typeof window !== 'undefined' && sessionStorage.getItem('isAboutPage')]);
 
   const setPage = () => {
+    setIsBackHome(isHomePage);
     setisHomePage(!isHomePage);
+
+    if (isBackHome) {
+      buttonRef.current.focus();
+    }
   };
 
   const smallHeader = <h1>Hey there! I'm</h1>;
@@ -200,18 +207,18 @@ const Hero = () => {
       Ayana Griffin, a <span>software engineer</span>
     </h2>
   );
-  // const three = <h3 className="medium-heading">I create user-friendly applications</h3>;
   const subtext = (
     <p>
       I'm a freshman at Stanford studying Computer Science and Human-Computer Interaction. I strive
       to build meaningful, beautiful, projects.
     </p>
   );
-
   const buttons = (
     <div className="button-wrapper">
-      <button onClick={() => setPage()}>About Me</button>
-      <a href="#contact" className="secondary button-link">
+      <button ref={buttonRef} onClick={() => setPage()}>
+        About Me
+      </button>
+      <a href="#contact" className="secondary button-link" tabIndex={!isHomePage ? -1 : undefined}>
         Get in Touch
       </a>
     </div>
