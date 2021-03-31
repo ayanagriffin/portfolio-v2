@@ -45,12 +45,6 @@ const Popup = ({ closeForm, children }) => {
   const wrapperRef = useRef();
   useOnClickOutside(wrapperRef, closeForm);
 
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-  const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-
-  window.onscroll = function() {
-    window.scrollTo(scrollLeft, scrollTop);
-  };
   return (
     <PopupContainer>
       <PopupWrapper ref={wrapperRef}>
