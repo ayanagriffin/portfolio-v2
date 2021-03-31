@@ -258,15 +258,15 @@ const Hero = () => {
             justice.
           </p>
           <p className="about">
-            I've previously interned at{' '}
-            <a href="/" tabIndex={isHomePage ? -1 : undefined}>
-              Company 1
+            I'm currently working with{' '}
+            <a href="https://trillproject.com" tabIndex={isHomePage ? -1 : undefined}>
+              Trill Project
             </a>{' '}
             and{' '}
-            <a href="/" tabIndex={isHomePage ? -1 : undefined}>
-              Company 1
+            <a href="https://www.developforgood.org/" tabIndex={isHomePage ? -1 : undefined}>
+              Develop for Good
             </a>
-            , working with JavaScript, React, Node and Gatsby.
+            , working with React.
           </p>
           <div className="button-wrapper">
             <button onClick={() => setPage()} tabIndex={isHomePage ? -1 : undefined}>
