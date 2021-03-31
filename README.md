@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://user-images.githubusercontent.com/69114559/113083703-7db17780-9191-11eb-8e3a-1832beb4fa41.png" width="100" />
+  <img alt="Logo" src="https://user-images.githubusercontent.com/69114559/113083804-b81b1480-9191-11eb-8bd1-7cec6b303e6d.png" width="100" />
 </div>
 <h1 align="center">
   ayanagriffin.com
