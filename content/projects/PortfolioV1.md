@@ -1,8 +1,8 @@
 ---
 date: '2021-01-21'
 title: 'Portfolio v1'
-github: ''
-external: ''
+github: 'https://github.com/ayanagriffin/portfolio-v1'
+external: 'https://ayanagriffin.com/portfolio-v1/'
 tech:
   - JavaScript
   - HTML
