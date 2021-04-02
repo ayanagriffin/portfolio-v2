@@ -233,13 +233,16 @@ const Projects = () => {
                       <footer className="project-bottom">
                         <div className="project-links">
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a href={github} aria-label="GitHub Link" className="project-icon-link">
                               <Icon name="GitHub" />
                               <span className="inline-link">Github</span>
                             </a>
                           )}
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a
+                              href={external}
+                              aria-label="External Link"
+                              className="project-icon-link">
                               <Icon name="External" />
                               <span className="inline-link">Live</span>
                             </a>

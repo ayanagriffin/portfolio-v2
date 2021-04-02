@@ -257,9 +257,7 @@ const GlobalStyle = createGlobalStyle`
     border:none;
     cursor: pointer;
     transition: var(--transition);
-    &:hover{
-      transform: scale(0.9);
-    }
+    
     &:focus,
     &:active {
       outline: 2px dashed var(--blue);
@@ -358,6 +356,16 @@ const GlobalStyle = createGlobalStyle`
       ${({ theme }) => theme.mixins.inlineLink};
       line-height: 1.5;
     }
+  }
+
+  .project-icon-link{
+    svg{
+      transition: var(--transition);
+      &:hover{
+        transform: translateY(-5px);
+      }
+    }
+   
   }
 
   .breadcrumb {

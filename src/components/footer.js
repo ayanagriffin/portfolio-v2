@@ -44,8 +44,10 @@ const StyledCredit = styled.div`
   p {
     font-family: var(--font-poppins);
     a {
+      font-size: var(--fz-xs);
       ${({ theme }) => theme.mixins.inlineLink};
       ${({ theme }) => theme.mixins.navLink};
+      color: var(--p-text);
     }
   }
 `;
@@ -57,7 +59,7 @@ const Footer = () => (
         {socialMedia &&
           socialMedia.map(({ name, url }, i) => (
             <li key={i}>
-              <a href={url} aria-label={name}>
+              <a href={url} aria-label={name} className="project-icon-link">
                 <Icon name={name} />
               </a>
             </li>
