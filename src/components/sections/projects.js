@@ -31,10 +31,6 @@ const StyledProjectsSection = styled.section`
     position: relative;
     margin-top: 50px;
 
-    // @media (max-width: 400px) {
-    //   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    // }
-
     a {
       position: relative;
       z-index: 1;
@@ -112,16 +108,16 @@ const StyledProject = styled.li`
     a {
       position: static;
 
-      // &:before {
-      //   content: '';
-      //   display: block;
-      //   position: absolute;
-      //   z-index: 0;
-      //   width: 100%;
-      //   height: 100%;
-      //   top: 0;
-      //   left: 0;
-      // }
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
     }
   }
 
