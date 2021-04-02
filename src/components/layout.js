@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import { Head, Nav, Footer } from '@components';
 import { GlobalStyle, theme } from '@styles';
+import { darkModeColors, lightModeColors } from '@config';
 
 // https://medium.com/@chrisfitkin/how-to-smooth-scroll-links-in-gatsby-3dc445299558
 if (typeof window !== 'undefined') {
@@ -46,20 +47,25 @@ const StyledContent = styled.div`
 
 const Layout = ({ children, location }) => {
   const isHome = location.pathname === '/';
-  // const [isLoading, setIsLoading] = useState(isHome);
 
-  // Sets target="_blank" rel="noopener noreferrer" on external links
-  // const handleExternalLinks = () => {
-  //   const allLinks = Array.from(document.querySelectorAll('a'));
-  //   if (allLinks.length > 0) {
-  //     allLinks.forEach(link => {
-  //       if (link.host !== window.location.host) {
-  //         link.setAttribute('rel', 'noopener noreferrer');
-  //         link.setAttribute('target', '_blank');
-  //       }
-  //     });
-  //   }
-  // };
+  const switchColorMode = mode => {
+    const r = document.querySelector(':root');
+    localStorage.setItem('colormode', mode);
+    if (mode === 'dark') {
+      Object.keys(darkModeColors).forEach(key => {
+        r.style.setProperty(key, darkModeColors[key]);
+      });
+    } else {
+      Object.keys(lightModeColors).forEach(key => {
+        r.style.setProperty(key, lightModeColors[key]);
+      });
+    }
+  };
+  useEffect(() => {
+    if (localStorage.getItem('colormode') === 'dark') {
+      switchColorMode('dark');
+    }
+  }, []);
 
   return (
     <>
@@ -72,21 +78,14 @@ const Layout = ({ children, location }) => {
           <SkipToContentLink className="button-link" href="#content">
             Skip to Content
           </SkipToContentLink>
-
-          {/* {isLoading && isHome ? (
-            <Loader finishLoading={() => setIsLoading(false)} />
-          ) : ( */}
           <StyledContent>
-            <Nav isHome={isHome} />
-            {/* <Social isHome={isHome} />
-              <Email isHome={isHome} /> */}
+            <Nav isHome={isHome} switchColorMode={switchColorMode} />
 
             <div id="content">
               {children}
               <Footer />
             </div>
           </StyledContent>
-          {/* )} */}
         </ThemeProvider>
       </div>
     </>

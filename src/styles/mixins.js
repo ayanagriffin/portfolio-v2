@@ -102,13 +102,13 @@ const mixins = {
   `,
 
   primaryButton: css`
-    color: var(--background);
+    color: var(--white);
     background-color: var(--blue);
     box-shadow: 0px 3px 17px rgba(81, 159, 231, 30%);
     &:hover,
     &:focus,
     &:active {
-      color: var(--background);
+      color: var(--white);
       background-color: var(--blue);
       transform: scale(0.95);
     }
@@ -116,27 +116,27 @@ const mixins = {
 
   transparentButton: css`
     background-color: var(--background);
-    color: var(--blue);
+    color: var(--transparent-button-color);
     // font-weight: 700;
     &:hover,
     &:focus,
     &:active {
       background-color: var(--background);
-      color: var(--blue);
+      color: var(--transparent-button-color);
       transform: scale(0.95);
     }
   `,
 
   yellowButton: css`
     background-color: var(--yellow);
-    color: var(--main-text);
+    color: var(--dark-blue);
     box-shadow: 0px 3px 17px rgba(294, 197, 68, 50%);
     // font-weight: 600;
     &:hover,
     &:focus,
     &:active {
       background-color: var(--yellow);
-      color: var(--main-text);
+      color: var(--dark-blue);
       transform: scale(0.95);
     }
   `,

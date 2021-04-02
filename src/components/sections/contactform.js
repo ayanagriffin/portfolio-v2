@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -93,6 +93,12 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
   const [sendStatus, setSendStatus] = useState(notSent);
   const [emailFilled, setEmailFilled] = useState(false);
 
+  useEffect(() => {
+    if (formValues.email.length > 0) {
+      setEmailFilled(true);
+    }
+  }, []);
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -111,6 +117,13 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
       );
   }
 
+  const checkEmailLength = e => {
+    if (e.target.value.length > 0) {
+      setEmailFilled(true);
+    } else {
+      setEmailFilled(false);
+    }
+  };
   const updateFormValues = e => {
     const { name, value } = e.target;
     setFormValues(prevState => ({
@@ -118,11 +131,7 @@ const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
       [name]: value,
     }));
     if (name === 'email') {
-      if (e.target.value.length > 0) {
-        setEmailFilled(true);
-      } else {
-        setEmailFilled(false);
-      }
+      checkEmailLength(e);
     }
   };
 

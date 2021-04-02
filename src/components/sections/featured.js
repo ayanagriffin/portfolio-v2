@@ -19,6 +19,9 @@ display: grid;
 grid-template-columns:repeat(2, 1fr);
 gap: 30px;
 
+svg{
+  margin-top: -2px;
+}
 h3{
   font-size: var(--fz-heading);
   font-weight: 800;

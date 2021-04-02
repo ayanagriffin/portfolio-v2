@@ -8,6 +8,8 @@ import {
   IconClose,
   IconMail,
   IconResume,
+  IconSun,
+  IconMoon,
 } from '@components/icons';
 
 const Icon = ({ name }) => {
@@ -26,6 +28,10 @@ const Icon = ({ name }) => {
       return <IconMail />;
     case 'Resume':
       return <IconResume />;
+    case 'Sun':
+      return <IconSun />;
+    case 'Moon':
+      return <IconMoon />;
     default:
       return <IconExternal />;
   }

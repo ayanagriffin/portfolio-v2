@@ -7,16 +7,20 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --navy-shadow: rgba(149, 157, 165, 0.2);
-
-    --background: #ffffff;
-    --large-text: #3F3D56;
+    --white: #ffffff;
+    --dark-blue: #3A3A5B;
     --yellow: #F3C444;
-    --accent-text: #015E60;
+
     --blue: #0075E3;
+    --background: var(--white);
+    --large-text: #3F3D56;
+    --accent-text: #015E60;
     --p-text: #6E6D8C;
     --main-text: #3A3A5B;
-
+    --transparent-button-color: #0075E3; 
     --hamburger: #000000;
+    --hover: #f7f7f7
+
 
     --font-karla: 'Karla', 'San Francisco', 'SF Pro Text', -apple-system, system-ui, sans-serif;
     --font-poppins: 'Poppins', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
@@ -200,7 +204,6 @@ const GlobalStyle = createGlobalStyle`
   svg {
 
     width: 18px;
-    margin-top: -2px;
     color: var(--blue);
 
     fill: currentColor;
@@ -291,34 +294,7 @@ const GlobalStyle = createGlobalStyle`
       ${({ theme }) => theme.mixins.inlineLink};
     }
 
-    // & > code {
-    //   background-color: var(--yellow);
-    //   color: var(--white);
-    //   font-size: var(--fz-sm);
-    //   border-radius: var(--border-radius);
-    //   padding: 0.3em 0.5em;
-    // }
   }
-
-  // ul {
-  //   &.fancy-list {
-  //     padding: 0;
-  //     margin: 0;
-  //     list-style: none;
-  //     font-size: var(--fz-lg);
-  //     li {
-  //       position: relative;
-  //       padding-left: 30px;
-  //       margin-bottom: 10px;
-  //       &:before {
-  //         content: '▹';
-  //         position: absolute;
-  //         left: 0;
-  //         color: var(--blue);
-  //       }
-  //     }
-  //   }
-  // }
 
   blockquote {
     border-left-style: solid;

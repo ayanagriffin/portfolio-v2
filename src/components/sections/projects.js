@@ -56,7 +56,7 @@ const StyledProject = styled.li`
     margin: 5px 0 20px 0;
     font-size: var(--fz-md);
     font-weight: bold;
-    color: var(--p-text);
+    color: var(--main-text);
   }
   &:hover,
   &:focus-within {
@@ -96,6 +96,8 @@ const StyledProject = styled.li`
       width: 22px;
       height: 22px;
       margin-right: 5px;
+      margin-top: -2px;
+      
     }
 
     a{

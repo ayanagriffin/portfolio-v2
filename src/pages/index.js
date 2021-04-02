@@ -14,7 +14,6 @@ const IndexPage = ({ location }) => {
   const [formValues, setFormValues] = useState(initialContactForm);
   const closeForm = () => {
     setFormIsOpen(false);
-    window.onscroll = function() {};
   };
 
   const openForm = () => {

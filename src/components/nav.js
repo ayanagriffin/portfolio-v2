@@ -7,7 +7,7 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection } from '@hooks';
 import { Menu } from '@components';
-import { IconLogo } from '@components/icons';
+import { IconMoon, IconSun } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -121,10 +121,30 @@ const StyledLinks = styled.div`
   }
 `;
 
-const Nav = ({ isHome }) => {
+const SwitchColorThemeButton = styled.button`
+  ${({ theme }) => theme.mixins.flexCenter};
+  position: relative;
+  background: transparent;
+  width: 50px;
+  height: 50px;
+  padding: 10px !important;
+  border-radius: 50px !important;
+
+  &:hover {
+    background: var(--hover);
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const Nav = ({ isHome, switchColorMode }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [colorMode, setColorMode] = useState(localStorage.getItem('colormode'));
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -148,6 +168,16 @@ const Nav = ({ isHome }) => {
     document.activeElement.blur();
   };
 
+  const handleThemeChange = () => {
+    if (colorMode !== 'dark') {
+      switchColorMode('dark');
+      setColorMode('dark');
+    } else {
+      switchColorMode('light');
+      setColorMode('light');
+    }
+  };
+
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
@@ -158,17 +188,12 @@ const Nav = ({ isHome }) => {
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={fadeClass} timeout={timeout}>
-              <div className="logo" tabIndex="-1">
-                {isHome ? (
-                  <a href="/" aria-label="home">
-                    <IconLogo />
-                  </a>
-                ) : (
-                  <Link to="/" aria-label="home">
-                    <IconLogo />
-                  </Link>
-                )}
-              </div>
+              {/* <div className="logo" tabIndex="-1">
+                    
+              </div> */}
+              <SwitchColorThemeButton onClick={handleThemeChange}>
+                {colorMode === 'dark' ? <IconSun class="sun" /> : <IconMoon />}
+              </SwitchColorThemeButton>
             </CSSTransition>
           )}
         </TransitionGroup>
@@ -214,7 +239,6 @@ const Nav = ({ isHome }) => {
             )}
           </TransitionGroup>
         </StyledLinks>
-
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={fadeClass} timeout={timeout}>
@@ -229,6 +253,7 @@ const Nav = ({ isHome }) => {
 
 Nav.propTypes = {
   isHome: PropTypes.bool,
+  switchColorMode: PropTypes.func.isRequired,
 };
 
 export default Nav;

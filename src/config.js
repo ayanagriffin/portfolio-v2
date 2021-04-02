@@ -50,6 +50,30 @@ module.exports = {
     white: '#FFFFFF',
   },
 
+  lightModeColors: {
+    '--background': '#ffffff',
+    '--blue': '#0075E3',
+    '--large-text': '#3F3D56',
+    '--accent-text': '#015E60',
+    '--p-text': '#6E6D8C',
+    '--main-text': '#3A3A5B',
+    '--transparent-button-color': '#0075E3',
+    '--hamburger': '#000000',
+    '--hover': '#f7f7f7',
+  },
+
+  darkModeColors: {
+    '--background': '#10172A',
+    '--blue': '#0084ff',
+    '--large-text': '#ffffff',
+    '--accent-text': '#ffffff',
+    '--p-text': '#dedede',
+    '--main-text': '#ffffff',
+    '--transparent-button-color': '#ffffff',
+    '--hamburger': '#ffffff',
+    '--hover': '#22315c',
+  },
+
   srConfig: (delay = 200, viewFactor = 0.25) => ({
     origin: 'bottom',
     distance: '20px',

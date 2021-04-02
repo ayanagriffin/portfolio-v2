@@ -29,7 +29,7 @@ const StyledTableContainer = styled.div`
     tbody tr {
       &:hover,
       &:focus {
-        background-color: #f7f7f7;
+        background-color: var(--hover);
       }
     }
 

@@ -6,3 +6,5 @@ export { default as IconLogo } from './logo';
 export { default as IconClose } from './close';
 export { default as IconMail } from './mail';
 export { default as IconResume } from './resume';
+export { default as IconSun } from './sun';
+export { default as IconMoon } from './moon';

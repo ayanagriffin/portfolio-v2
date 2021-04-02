@@ -1,5 +1,5 @@
 ---
-date: '2021-5-11'
+date: '2021-05-11'
 title: 'TrillProject.com'
 github: ''
 external: 'https://trillproject.com'
