@@ -229,8 +229,6 @@ const GlobalStyle = createGlobalStyle`
       }
 
   }
-
- 
   button:not(.icon), .button-link {
     font-family: var(--font-poppins);
     cursor: pointer;
@@ -262,6 +260,21 @@ const GlobalStyle = createGlobalStyle`
     &:active {
       outline: 2px dashed var(--blue);
       outline-offset: 3px;
+    }
+  }
+
+  .icon-button{
+    padding: 10px;
+    ${({ theme }) => theme.mixins.flexCenter};
+    background: transparent;
+    border-radius: 50px !important;
+
+    &:hover, &:focus, &:active {
+      background: var(--hover);
+      outline: none!important;
+      svg {
+        transform: scale(0.95);
+      }
     }
   }
 

@@ -151,7 +151,7 @@ const Featured = () => {
 
   return (
     <section id="projects">
-      <h2 ref={revealTitle}>Some Things I’ve Built</h2>
+      {/* <h2 ref={revealTitle}>Some Things I’ve Built</h2> */}
 
       <StyledProjectsGrid>
         {featuredProjects &&

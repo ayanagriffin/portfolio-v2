@@ -101,8 +101,11 @@ const SwitchColorThemeButton = styled.button`
   padding: 10px !important;
   border-radius: 50px !important;
 
-  &:hover {
+  &:hover,
+  &:focus,
+  &:active {
     background: var(--hover);
+    outline: none !important;
     svg {
       transform: scale(0.95);
     }
@@ -167,8 +170,9 @@ const Nav = ({ isHome, switchColorMode }) => {
             <CSSTransition classNames={fadeClass} timeout={timeout}>
               <SwitchColorThemeButton
                 onClick={handleThemeChange}
-                title={colorMode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
-                {colorMode === 'dark' ? <IconSun class="sun" /> : <IconMoon />}
+                title={colorMode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                className="icon-button">
+                {colorMode === 'dark' ? <IconSun /> : <IconMoon />}
               </SwitchColorThemeButton>
             </CSSTransition>
           )}

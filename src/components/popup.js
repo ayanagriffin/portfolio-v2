@@ -32,17 +32,6 @@ const PopupWrapper = styled.div`
     position: absolute;
     top: 1.5rem;
     right: 1rem;
-    padding: 10px;
-    ${({ theme }) => theme.mixins.flexCenter};
-    background: transparent;
-    border-radius: 50px !important;
-
-    &:hover {
-      background: var(--hover);
-      svg {
-        transform: scale(0.95);
-      }
-    }
 
     svg {
       width: 20px;
@@ -58,7 +47,7 @@ const Popup = ({ closeForm, children }) => {
   return (
     <PopupContainer>
       <PopupWrapper ref={wrapperRef}>
-        <button className="icon" onClick={closeForm}>
+        <button className="icon-button icon" onClick={closeForm}>
           <IconClose />
         </button>
         {children}
