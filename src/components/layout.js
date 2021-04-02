@@ -50,7 +50,7 @@ const Layout = ({ children, location }) => {
 
   const switchColorMode = mode => {
     const r = document.querySelector(':root');
-    localStorage.setItem('colormode', mode);
+    typeof window !== 'undefined' && localStorage.setItem('colormode', mode);
     if (mode === 'dark') {
       Object.keys(darkModeColors).forEach(key => {
         r.style.setProperty(key, darkModeColors[key]);
@@ -62,7 +62,7 @@ const Layout = ({ children, location }) => {
     }
   };
   useEffect(() => {
-    if (localStorage.getItem('colormode') === 'dark') {
+    if (typeof window !== 'undefined' && localStorage.getItem('colormode') === 'dark') {
       switchColorMode('dark');
     }
   }, []);

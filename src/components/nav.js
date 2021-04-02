@@ -115,7 +115,9 @@ const Nav = ({ isHome, switchColorMode }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
-  const [colorMode, setColorMode] = useState(localStorage.getItem('colormode'));
+  const [colorMode, setColorMode] = useState(
+    typeof window !== 'undefined' && localStorage.getItem('colormode'),
+  );
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
