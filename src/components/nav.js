@@ -56,35 +56,6 @@ const StyledNav = styled.nav`
 
   font-family: var(--font-poppins);
   z-index: 12;
-
-  .logo {
-    ${({ theme }) => theme.mixins.flexCenter};
-
-    a {
-      width: 60px;
-      height: 60px;
-
-      svg rect {
-        transition: var(--transition);
-      }
-      &:hover,
-      &:focus {
-        svg {
-          rect {
-            fill: var(--blue);
-          }
-        }
-      }
-
-      svg {
-        width: 100%;
-        height: 100%;f
-        fill: none;
-        transition: var(--transition);
-        user-select: none;
-      }
-    }
-  }
 `;
 
 const StyledLinks = styled.div`
@@ -188,10 +159,9 @@ const Nav = ({ isHome, switchColorMode }) => {
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={fadeClass} timeout={timeout}>
-              {/* <div className="logo" tabIndex="-1">
-                    
-              </div> */}
-              <SwitchColorThemeButton onClick={handleThemeChange}>
+              <SwitchColorThemeButton
+                onClick={handleThemeChange}
+                title={colorMode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}>
                 {colorMode === 'dark' ? <IconSun class="sun" /> : <IconMoon />}
               </SwitchColorThemeButton>
             </CSSTransition>
