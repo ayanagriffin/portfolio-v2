@@ -65,12 +65,12 @@ module.exports = {
   darkModeColors: {
     '--background': '#10172A',
     '--blue': '#0084ff',
-    '--large-text': '#ffffff',
-    '--accent-text': '#ffffff',
+    '--large-text': '#e8e8e8',
+    '--accent-text': '#e8e8e8',
     '--p-text': '#dedede',
-    '--main-text': '#ffffff',
-    '--transparent-button-color': '#ffffff',
-    '--hamburger': '#ffffff',
+    '--main-text': '#e8e8e8',
+    '--transparent-button-color': '#e8e8e8',
+    '--hamburger': '#e8e8e8',
     '--hover': '#22315c',
   },
 

@@ -46,7 +46,7 @@ const StyledFieldset = styled.fieldset`
   margin-top: 18px;
   z-index: 1000;
   transition: 0.5s;
-  color: var(--p-text);
+  
   pointer-events: none;
 
   }
@@ -60,10 +60,10 @@ const StyledFieldset = styled.fieldset`
     resize: none;
     outline: none;
     font-family: var(--font-karla);
-    font-weight: 300;
+    font-weight: 400;
     background: var(--background);
     height: 30px;
-
+    color: var(--main-text);
     &:focus ~ label,
     &:active ~ label,
     &:valid ~ label,

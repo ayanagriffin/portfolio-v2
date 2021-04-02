@@ -56,7 +56,6 @@ const StyledProject = styled.li`
     margin: 5px 0 20px 0;
     font-size: var(--fz-md);
     font-weight: bold;
-    color: var(--main-text);
   }
   &:hover,
   &:focus-within {

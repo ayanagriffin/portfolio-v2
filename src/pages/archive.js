@@ -25,6 +25,7 @@ const StyledTableContainer = styled.div`
     }
     tbody {
       font-family: var(--font-karla);
+      color: var(--p-text);
     }
     tbody tr {
       &:hover,
@@ -148,7 +149,9 @@ const ArchivePage = ({ location, data }) => {
       <main>
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
-          <p style={{ fontFamily: 'var(--font-karla)' }}>A big list of things I’ve worked on</p>
+          <p style={{ fontFamily: 'var(--font-karla)', color: 'var(--p-text)' }}>
+            A big list of things I’ve worked on
+          </p>
         </header>
 
         <StyledTableContainer ref={revealTable}>

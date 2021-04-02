@@ -13,6 +13,9 @@ const StyledContactSection = styled.section`
     margin: 0 auto 50px;
   }
 
+  p {
+    color: var(--p-text);
+  }
   .overline {
     display: block;
     margin-bottom: 20px;

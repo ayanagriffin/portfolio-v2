@@ -285,6 +285,7 @@ const GlobalStyle = createGlobalStyle`
   p {
     margin: 0 0 15px 0;
     font-family: var(--font-karla);
+    color: var(--p-text);
     &:last-child,
     &:last-of-type {
       margin: 0;
@@ -294,6 +295,10 @@ const GlobalStyle = createGlobalStyle`
       ${({ theme }) => theme.mixins.inlineLink};
     }
 
+  }
+
+  .built-with, .built-with p{
+    color: var(--main-text);
   }
 
   blockquote {
