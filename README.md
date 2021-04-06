@@ -19,4 +19,6 @@
 </kbd>
 <br/>
 <br/>
+<kbd>
 <img width="1425" alt="Website Demo in Dark Mode" src="https://user-images.githubusercontent.com/69114559/113785443-00838680-96ec-11eb-8231-f636d58e3290.png">
+</kbd>
