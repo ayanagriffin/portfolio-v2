@@ -12,5 +12,8 @@
   <a href="https://github.com/ayanagriffin/portfolio-v1" target="_blank">v1</a>
 
 </p>
-<img width="1425" alt="Website Demo in Light Mode" src="https://user-images.githubusercontent.com/69114559/113785443-00838680-96ec-11eb-8231-f636d58e3290.png">
-<img width="1425" alt="Website Demo in Dark Mode" src="https://user-images.githubusercontent.com/69114559/113785449-01b4b380-96ec-11eb-82bd-3694ba2b4e3f.png">
+<br/>
+
+
+<img width="1425" alt="Website Demo in Light Mode" src="https://user-images.githubusercontent.com/69114559/113785449-01b4b380-96ec-11eb-82bd-3694ba2b4e3f.png">
+<img width="1425" alt="Website Demo in Dark Mode" src="https://user-images.githubusercontent.com/69114559/113785443-00838680-96ec-11eb-8231-f636d58e3290.png">
