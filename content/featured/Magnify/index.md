@@ -1,6 +1,7 @@
 ---
 date: '2'
-title: MagnifyWellness.org
+title: Magnify Wellness Website
+shortTitle: Magnify Wellness
 cover: './magnify.png'
 github: 'https://github.com/abigaylerose03/Magnify-Wellness-Official'
 external: 'https://magnifywellness.org'

@@ -23,7 +23,7 @@ svg{
   margin-top: -2px;
 }
 h3{
-  font-size: var(--fz-heading);
+  font-size: calc(min(32px, 8vw));
   font-weight: 800;
 }
 
@@ -122,6 +122,7 @@ const Featured = () => {
           node {
             frontmatter {
               title
+              shortTitle
               cover {
                 childImageSharp {
                   fluid(maxWidth: 700, traceSVG: { color: "#ffffff" }) {
@@ -157,7 +158,7 @@ const Featured = () => {
         {featuredProjects &&
           featuredProjects.map(({ node }, i) => {
             const { frontmatter, html } = node;
-            const { external, title, tech, github, cover } = frontmatter;
+            const { external, title, shortTitle, tech, github, cover } = frontmatter;
 
             return (
               <StyledProject key={i} ref={el => (revealProjects.current[i] = el)}>
@@ -195,7 +196,7 @@ const Featured = () => {
                       href={external ? external : github}
                       aria-label="Project Link"
                       className="button-primary button-link">
-                      View {title}
+                      View {shortTitle ? shortTitle : title}
                     </a>
                   </div>
                 </div>

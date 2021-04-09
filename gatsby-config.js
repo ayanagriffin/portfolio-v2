@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Ayana Griffin',
     description:
-      'Ayana Griffin is a Computer Science student at Stanford University with a passion for creating beautiful, meaningful projects.',
+      'Ayana Griffin is a Computer Science student at Stanford with a passion for creating beautiful, meaningful projects.',
     siteUrl: 'https://ayanagriffin.com', // No trailing slash allowed!
     image: '/og.png', // Path to your image you placed in the 'static' folder
   },
@@ -148,12 +148,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-45666519-2',
       },
     },
   ],

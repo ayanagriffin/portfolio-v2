@@ -80,6 +80,15 @@ const HeroContainer = styled.div`
       ${({ theme }) => theme.mixins.medButton};
     }
   }
+
+  @media (max-width: 480px) {
+    padding: 60px 0;
+    padding-top: 0px;
+
+    @media (max-height: 675px) {
+      padding-top: 60px;
+    }
+  }
 `;
 const StyledAboutSection = styled.section`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -204,13 +213,13 @@ const Hero = () => {
   const smallHeader = <h1>Hey there! I'm</h1>;
   const bigHeader = (
     <h2 className="medium-heading">
-      Ayana Griffin, a <span>software engineer</span>
+      Ayana Griffin, a <span>Stanford CS student</span>
     </h2>
   );
   const subtext = (
     <p>
-      I'm a freshman at Stanford studying Computer Science and Human-Computer Interaction. I strive
-      to build meaningful, beautiful, projects.
+      I'm a freshman studying Computer Science and Human-Computer Interaction. I strive to build
+      meaningful, beautiful, projects for social good.
     </p>
   );
   const buttons = (
