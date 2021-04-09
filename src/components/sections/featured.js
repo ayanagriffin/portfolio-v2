@@ -193,7 +193,7 @@ const Featured = () => {
                   </div>
                   <div className="project-link">
                     <a
-                      href={external ? external : github}
+                      href={external ? external : github ? github : '#'}
                       aria-label="Project Link"
                       className="button-primary button-link">
                       View {shortTitle ? shortTitle : title}

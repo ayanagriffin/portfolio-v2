@@ -210,7 +210,7 @@ const Projects = () => {
                     <div className="project-inner">
                       <header className="project-top">
                         <h3 className="project-title">
-                          <a href={external}>{title}</a>
+                          <a href={external ? external : github}>{title}</a>
                         </h3>
 
                         <div
@@ -249,46 +249,6 @@ const Projects = () => {
                           )}
                         </div>
                       </footer>
-
-                      {/* <div className="project-links"> */}
-                      {/* {github && !external && (
-                            <a
-                              href={github}
-                              aria-label="GitHub Link"
-                              className="button-primary button-link"
-                              style={{ marginBottom: '25px' }}>
-                              view source code
-                            </a>
-                          )}
-
-                          {!github && external && (
-                            <a
-                              href={external}
-                              aria-label="GitHub Link"
-                              className="button-primary button-link"
-                              style={{ marginBottom: '25px' }}>
-                              view project
-                            </a>
-                          )}
-
-                          {github && external && (
-                            <div>
-                              <a
-                                href={external}
-                                aria-label="GitHub Link"
-                                className="button-primary button-link">
-                                view project
-                              </a>
-                              <br />
-                              <a
-                                href={github}
-                                aria-label="GitHub Link"
-                                className="inline-link source-code">
-                                view source code
-                              </a>
-                            </div>
-                          )} */}
-                      {/* </div> */}
                     </div>
                   </StyledProject>
                 </CSSTransition>

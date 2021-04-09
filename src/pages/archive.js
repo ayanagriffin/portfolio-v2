@@ -90,6 +90,21 @@ const StyledTableContainer = styled.div`
         font-size: var(--fz-xl);
         font-weight: 600;
         line-height: 1.25;
+
+        a {
+          position: static;
+
+          &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+        }
       }
 
       &.company {
@@ -173,7 +188,9 @@ const ArchivePage = ({ location, data }) => {
                     <tr key={i} ref={el => (revealProjects.current[i] = el)}>
                       <td className="overline year">{`${new Date(date).getFullYear()}`}</td>
 
-                      <td className="title">{title}</td>
+                      <td className="title">
+                        <a href={external ? external : github ? github : '#'}>{title}</a>
+                      </td>
 
                       <td className="company hide-on-mobile">
                         {company ? <span>{company}</span> : <span>—</span>}
@@ -193,12 +210,18 @@ const ArchivePage = ({ location, data }) => {
                       <td className="links">
                         <div>
                           {external && (
-                            <a href={external} aria-label="External Link">
+                            <a
+                              href={external}
+                              aria-label="External Link"
+                              className="icon project-icon-link">
                               <Icon name="External" />
                             </a>
                           )}
                           {github && (
-                            <a href={github} aria-label="GitHub Link">
+                            <a
+                              href={github}
+                              aria-label="GitHub Link"
+                              className="icon project-icon-link">
                               <Icon name="GitHub" />
                             </a>
                           )}
