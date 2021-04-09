@@ -47,7 +47,13 @@ const StyledCredit = styled.div`
       font-size: var(--fz-xs);
       ${({ theme }) => theme.mixins.inlineLink};
       ${({ theme }) => theme.mixins.navLink};
-      color: var(--p-text);
+      color: var(--p-text) !important;
+      &:active {
+        color: var(--p-text);
+      }
+      &:after {
+        background-color: var(--p-text);
+      }
     }
   }
 `;
@@ -69,7 +75,8 @@ const Footer = () => (
     <StyledCredit>
       <p>
         Designed and built by <a href="https://brittanychiang.com/">Brittany Chiang</a> and{' '}
-        <a href="https://github.com/ayanagriffin/ayanagriffin.github.io">Ayana Griffin</a>
+        <a href="https://github.com/ayanagriffin/ayanagriffin.github.io">Ayana Griffin</a> <br />
+        Icons by <a href="https;//flaticon.com">Flaticon</a>
       </p>
     </StyledCredit>
   </StyledFooter>
