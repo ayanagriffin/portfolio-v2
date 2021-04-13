@@ -48,7 +48,7 @@ const StyledProject = styled.li`
   cursor: default;
   transition: var(--transition);
 
-  .built-with{
+  .built-with {
     margin: 5px 0 20px 0;
     font-size: var(--fz-md);
     font-weight: bold;
@@ -70,32 +70,25 @@ const StyledProject = styled.li`
     padding: 2.5rem 2rem;
     padding-bottom: 2rem;
     border-radius: var(--border-radius);
-    
+
     transition: var(--transition);
   }
 
-  .project-top {
-    // ${({ theme }) => theme.mixins.flexBetween};
-    // margin-bottom: 35px;
-
-  }
-
-  .project-bottom{
+  .project-bottom {
     color: var(--blue);
     font-size: var(--fz-md);
-    .inline-link{
+    .inline-link {
       color: var(--blue);
-    font-size: var(--fz-md);
+      font-size: var(--fz-md);
     }
-    svg{
+    svg {
       width: 22px;
       height: 22px;
       margin-right: 5px;
       margin-top: -2px;
-      
     }
 
-    a{
+    a {
       margin-right: 12px;
     }
   }
@@ -127,14 +120,7 @@ const StyledProject = styled.li`
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
-     
     }
-  }
-
-  
-  }
-
-  
   }
 `;
 

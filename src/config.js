@@ -58,7 +58,7 @@ module.exports = {
     '--p-text': '#6E6D8C',
     '--main-text': '#3A3A5B',
     '--transparent-button-color': '#0075E3',
-    '--hamburger': '#000000',
+    '--hamburger': '#3F3D56',
     '--hover': '#f7f7f7',
   },
 

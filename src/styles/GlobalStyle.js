@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
     --p-text: #6E6D8C;
     --main-text: #3A3A5B;
     --transparent-button-color: #0075E3; 
-    --hamburger: #000000;
+    --hamburger: #3A3A5B;
     --hover: #f7f7f7
 
 
@@ -401,26 +401,6 @@ const GlobalStyle = createGlobalStyle`
 
   .gatsby-image-outer-wrapper {
     height: 100%;
-  }
-
-  .small-top-text{
-    position: relative;
-    margin-bottom: 40px;
-    color: var(--accent-text);
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: var(--fz-xs);
-    
-    &:after{
-      content: '';
-      position: absolute;
-      margin-left: 10px;
-      top: 50%
-      transform: translateY(-50%);
-      width: 40px;
-      height: 3px;
-      background-color: var(--accent-text);
-    }
   }
 
   ${TransitionStyles};

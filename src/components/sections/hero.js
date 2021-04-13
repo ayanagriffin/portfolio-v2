@@ -8,6 +8,7 @@ import { navDelay, loaderDelay } from '@utils';
 const HeroContainer = styled.div`
   position: relative;
   min-height: 100vh;
+  max-height: 200vh;
   padding-top: 0;
   .inactive {
     transition: 1s;
@@ -27,11 +28,11 @@ const HeroContainer = styled.div`
   }
 
   @media (max-width: 900px) {
-    margin: 50px 0;
+    margin-top: 50px;
   }
 
   @media (max-width: 330px) {
-    margin-bottom: 110px;
+    margin-bottom: 200px;
   }
 
   h1 {
@@ -65,7 +66,7 @@ const HeroContainer = styled.div`
   }
 
   .about-text p {
-    max-width: 800px;
+    max-width: 900px;
   }
   .button-wrapper {
     margin-top: 50px;
@@ -96,7 +97,8 @@ const StyledAboutSection = styled.section`
   align-items: flex-start;
   position: absolute;
   top: 0;
-  height: 100%;
+  height: fit-content;
+  min-height: 100vh;
 `;
 
 const StyledHomeSection = styled.section`
@@ -177,6 +179,13 @@ const Hero = () => {
         childImageSharp {
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          }
+        }
+      }
+      about: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/content/about/" } }) {
+        edges {
+          node {
+            html
           }
         }
       }
@@ -263,27 +272,13 @@ const Hero = () => {
       </StyledHomeSection>
 
       <StyledAboutSection className={isHomePage ? 'inactive-about' : 'active'} id="about">
-        <h1>Hi there!</h1>
-        <h2 className="big-heading">Nice to meet you!</h2>
+        <h2 className="medium-heading">Nice to meet you!</h2>
 
         <div className="about-text">
-          <p>Hey! I'm Ayana, a CS student at Stanford University in the Bay Area.</p>
-          <p className="about">
-            I love creating websites, applications, or anything that lives on the internet! I am
-            especially passionate about using technology to advance global education and social
-            justice.
-          </p>
-          <p className="about">
-            I'm currently working with{' '}
-            <a href="https://trillproject.com" tabIndex={isHomePage ? -1 : undefined}>
-              Trill Project
-            </a>{' '}
-            and{' '}
-            <a href="https://www.developforgood.org/" tabIndex={isHomePage ? -1 : undefined}>
-              Develop for Good
-            </a>
-            , working with React.
-          </p>
+          <div
+            className="about"
+            dangerouslySetInnerHTML={{ __html: data.about.edges[0].node.html }}
+          />
           <div className="button-wrapper">
             <button onClick={() => setPage()} tabIndex={isHomePage ? -1 : undefined}>
               Back Home

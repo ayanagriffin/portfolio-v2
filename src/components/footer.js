@@ -75,7 +75,8 @@ const Footer = () => (
     <StyledCredit>
       <p>
         Designed and built by <a href="https://brittanychiang.com/">Brittany Chiang</a> and{' '}
-        <a href="https://github.com/ayanagriffin/ayanagriffin.github.io">Ayana Griffin</a> <br />
+        <a href="https://github.com/ayanagriffin/ayanagriffin.github.io">Ayana Griffin</a>
+        {', '}
         Icons by <a href="https;//flaticon.com">Flaticon</a>
       </p>
     </StyledCredit>

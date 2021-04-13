@@ -39,18 +39,18 @@ const StyledFieldset = styled.fieldset`
   position: relative;
   width: 100%;
 
-  label{
+  label {
     position: absolute;
-  left: 0;
-  font-size: 0.9rem;
-  margin-top: 18px;
-  z-index: 1000;
-  transition: 0.5s;
-  
-  pointer-events: none;
+    left: 0;
+    font-size: 0.9rem;
+    margin-top: 18px;
+    z-index: 1000;
+    transition: 0.5s;
 
+    pointer-events: none;
   }
-  input, textarea{
+  input,
+  textarea {
     width: 100%;
     padding: 5px 0;
     margin: 10px 0;
@@ -67,25 +67,20 @@ const StyledFieldset = styled.fieldset`
     &:focus ~ label,
     &:active ~ label,
     &:valid ~ label,
-    &.filled ~ label{
+    &.filled ~ label {
       color: var(--blue);
       font-size: 12px;
       transform: translateY(-25px);
       background: transparent;
     }
-
-    }
-
-    textarea{
-      height: 100px;
-    }
-    .message-label{
-      transform: translateY(70px);
-    }
-
-   
   }
-  
+
+  textarea {
+    height: 100px;
+  }
+  .message-label {
+    transform: translateY(70px);
+  }
 `;
 
 const ContactForm = ({ formValues, setFormValues, emptyForm }) => {
