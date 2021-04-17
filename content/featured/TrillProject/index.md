@@ -2,7 +2,7 @@
 date: '3'
 title: Trill Project Web App
 shortTitle: Trill Web App
-cover: './trill.png'
+cover: './tp.png'
 github: ''
 external: 'https://trillproject.com'
 tech:

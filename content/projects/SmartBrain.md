@@ -1,6 +1,6 @@
 ---
 date: '2021-02-22'
-title: 'Smart Brain Face Recognition Model'
+title: 'Face Recognition Web App'
 github: 'https://github.com/ayanagriffin/face-recognition'
 external: 'https://face-recognition-model.herokuapp.com/'
 tech:

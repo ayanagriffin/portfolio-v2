@@ -1,14 +1,12 @@
 ---
-date: '2020-08-24'
-title: 'EcoBud'
-github: 'https://github.com/ayanagriffin/ecobud'
-external: 'https://ayanagriffin.com/ecobud'
+date: '2021-04-16'
+title: 'Focus'
+github: 'https://github.com/ayanagriffin/focus'
+external: 'https://snack.expo.io/@ayanagriffin/focus'
 tech:
-  - JavaScript
-  - HTML
-  - CSS
-company: 'Hack for the People'
+  - React Native
+company: ''
 showInProjects: true
 ---
 
-A gamified web app that makes living a sustainable life and fighting environmental issues enjoyable with an adorable companion. Winner at Hack for the People 2020!
+A simple timer mobile app to help you focus on tasks and keep track of what tasks you have completed.

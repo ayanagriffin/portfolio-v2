@@ -1,6 +1,6 @@
 ---
 date: '2020-11-08'
-title: 'Post-it-Politics'
+title: 'Post-it Politics'
 github: 'https://github.com/chani20/Post-It-Politics-App'
 external: ''
 tech:

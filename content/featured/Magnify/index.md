@@ -2,7 +2,7 @@
 date: '2'
 title: Magnify Wellness Website
 shortTitle: Magnify Wellness
-cover: './magnify.png'
+cover: './mw.png'
 github: 'https://github.com/abigaylerose03/Magnify-Wellness-Official'
 external: 'https://magnifywellness.org'
 tech:

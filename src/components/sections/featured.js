@@ -43,6 +43,7 @@ const StyledProject = styled.li`
     .project-image {
       order: 2;
       padding-left: 100px;
+
       @media (max-width: 1080px) {
         order: 1;
         padding-left: 0;
@@ -95,6 +96,10 @@ const StyledProject = styled.li`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    img {
+      border-radius: var(--border-radius);
+    }
 
     a {
       width: 100%;
@@ -166,7 +171,9 @@ const Featured = () => {
                         tech.map((item, i) => (
                           <span key={i}>
                             {' '}
-                            {i === tech.length - 1 && <span className="separator">and </span>}
+                            {i === tech.length - 1 && tech.length > 1 && (
+                              <span className="separator">and </span>
+                            )}
                             {item}
                             {i !== tech.length - 1 && <span className="separator">,</span>}
                             {i === tech.length - 1 && <span>&nbsp;</span>}

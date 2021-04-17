@@ -209,7 +209,9 @@ const Projects = () => {
                             tech.map((item, i) => (
                               <span key={i}>
                                 {' '}
-                                {i === tech.length - 1 && <span className="separator">and </span>}
+                                {i === tech.length - 1 && tech.length > 1 && (
+                                  <span className="separator">and </span>
+                                )}
                                 {item}
                                 {i !== tech.length - 1 && <span className="separator">,</span>}
                               </span>

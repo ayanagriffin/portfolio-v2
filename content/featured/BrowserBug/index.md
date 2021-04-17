@@ -2,7 +2,7 @@
 date: '1'
 title: 'Browserbug'
 shortTitle: ''
-cover: './bbug.png'
+cover: './browserbug.png'
 github: 'https://github.com/wflms20110333/IMMA'
 external: 'https://chrome.google.com/webstore/detail/browserbug/pfggohdmelklomhabkeegajkjpdgppld'
 tech:
