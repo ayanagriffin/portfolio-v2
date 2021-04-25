@@ -222,13 +222,13 @@ const Hero = () => {
   const smallHeader = <h1>Hey there! I'm</h1>;
   const bigHeader = (
     <h2 className="medium-heading">
-      Ayana Griffin, a <span>Stanford CS student</span>
+      Ayana Griffin, a <span>CS student</span>
     </h2>
   );
   const subtext = (
     <p>
-      I'm a freshman studying Computer Science and Human-Computer Interaction. I strive to build
-      meaningful, beautiful, projects for social good.
+      I'm an incoming freshman at Stanford, planning to study Computer Science and Human-Computer
+      Interaction. I strive to build meaningful, beautiful, projects for social good.
     </p>
   );
   const buttons = (
