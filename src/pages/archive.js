@@ -165,7 +165,7 @@ const ArchivePage = ({ location, data }) => {
         <header ref={revealTitle}>
           <h1 className="big-heading">Archive</h1>
           <p style={{ fontFamily: 'var(--font-karla)', color: 'var(--p-text)' }}>
-            A big list of things I’ve worked on
+            A growing list of things I’ve worked on
           </p>
         </header>
 
