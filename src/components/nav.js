@@ -7,7 +7,7 @@ import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
 import { useScrollDirection } from '@hooks';
 import { Menu } from '@components';
-import { IconMoon, IconSun } from '@components/icons';
+import { IconLogo } from '@components/icons';
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
@@ -49,6 +49,20 @@ const StyledHeader = styled.header`
   }
 `;
 
+const StyledLogo = styled.div`
+
+  svg {
+    width: 60px;
+    height: 60px;
+    transition: var(--transition);
+    &:hover,
+    &:focus {
+
+      transform: scale(0.95)
+          }
+  }
+
+`
 const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
@@ -92,39 +106,30 @@ const StyledLinks = styled.div`
   }
 `;
 
-const SwitchColorThemeButton = styled.button`
-  ${({ theme }) => theme.mixins.flexCenter};
-  position: relative;
-  background: transparent;
-  width: 50px;
-  height: 50px;
-  padding: 10px !important;
-  border-radius: 50px !important;
 
-  &:hover,
-  &:focus,
-  &:active {
-    background: var(--hover);
-    outline: none !important;
-    svg {
-      transform: scale(0.95);
-    }
-  }
+const Logo = ({isHome}) => (
+  <div className="logo" tabIndex="-1">
+    {isHome ? (
+      <a href="/" aria-label="home">
+        <StyledLogo>
+          <IconLogo />
+        </StyledLogo>
+      </a>
+    ) : (
+      <Link to="/" aria-label="home">
+        <StyledLogo>
+          <IconLogo />
+        </StyledLogo>
+      </Link>
+    )}
+  </div>
+);
 
-  svg {
-    width: 100%;
-    height: 100%;
-    transition: var(--transition);
-  }
-`;
-
-const Nav = ({ isHome, switchColorMode }) => {
+const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
   const [scrolledToTop, setScrolledToTop] = useState(true);
-  const [colorMode, setColorMode] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('colormode'),
-  );
+  
 
   const handleScroll = () => {
     setScrolledToTop(window.pageYOffset < 50);
@@ -148,16 +153,6 @@ const Nav = ({ isHome, switchColorMode }) => {
     document.activeElement.blur();
   };
 
-  const handleThemeChange = () => {
-    if (colorMode !== 'dark') {
-      switchColorMode('dark');
-      setColorMode('dark');
-    } else {
-      switchColorMode('light');
-      setColorMode('light');
-    }
-  };
-
   const timeout = isHome ? loaderDelay : 0;
   const fadeClass = isHome ? 'fade' : '';
   const fadeDownClass = isHome ? 'fadedown' : '';
@@ -168,12 +163,7 @@ const Nav = ({ isHome, switchColorMode }) => {
         <TransitionGroup component={null}>
           {isMounted && (
             <CSSTransition classNames={fadeClass} timeout={timeout}>
-              <SwitchColorThemeButton
-                onClick={handleThemeChange}
-                title={colorMode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-                className="icon-button">
-                {colorMode === 'dark' ? <IconSun /> : <IconMoon />}
-              </SwitchColorThemeButton>
+              <Logo isHome={isHome}/>
             </CSSTransition>
           )}
         </TransitionGroup>

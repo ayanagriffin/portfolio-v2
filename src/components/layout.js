@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { Head, Nav, Footer } from '@components';
+import { Head, Nav, Footer, ColorMode } from '@components';
 import { GlobalStyle, theme } from '@styles';
 import { darkModeColors, lightModeColors } from '@config';
 
@@ -70,18 +70,19 @@ const Layout = ({ children, location }) => {
   return (
     <>
       <Head />
-
       <div id="root">
         <ThemeProvider theme={theme}>
+
           <GlobalStyle />
 
           <SkipToContentLink className="button-link" href="#content">
             Skip to Content
           </SkipToContentLink>
           <StyledContent>
-            <Nav isHome={isHome} switchColorMode={switchColorMode} />
-
+            <Nav isHome={isHome} />
             <div id="content">
+            <ColorMode switchColorMode={switchColorMode} />
+
               {children}
               <Footer />
             </div>
