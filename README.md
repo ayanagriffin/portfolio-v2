@@ -15,10 +15,11 @@
 <br/>
 
 <kbd>
-<img width="1425" alt="Website Demo in Light Mode" src="https://user-images.githubusercontent.com/69114559/113785449-01b4b380-96ec-11eb-82bd-3694ba2b4e3f.png">
+<img width="1425" alt="Website Demo in Light Mode" src="https://user-images.githubusercontent.com/69114559/179363173-0f46c3e6-1699-45d3-bdcf-8d93202475fc.png">
 </kbd>
 <br/>
 <br/>
 <kbd>
-<img width="1425" alt="Website Demo in Dark Mode" src="https://user-images.githubusercontent.com/69114559/113785443-00838680-96ec-11eb-8231-f636d58e3290.png">
+<img width="1425" alt="Website Demo in Dark Mode" src="https://user-images.githubusercontent.com/69114559/179363189-cce4274b-8948-475d-a014-62a6da58f2f7.png">
 </kbd>
+
